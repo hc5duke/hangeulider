@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="/Users/hchoi/dev/android-sdk-mac_x86-1.1_r1/android.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

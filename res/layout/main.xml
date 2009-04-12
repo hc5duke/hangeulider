@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView
+        android:id="@+id/label"
+        android:text="Type here (영어)"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"/>
+
+    <EditText
+        android:id="@+id/entry"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/editbox_background"
+        android:layout_below="@+id/label"/>
+
+    <TextView
+    	android:id="@+id/korean"
+    	android:text="한글 (Korean):"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_below="@+id/entry"
+        android:textColor="#ffffff"/>
+
+    <EditText
+        android:id="@+id/output"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/editbox_background"
+        android:layout_below="@+id/korean" android:scrollbars="vertical" android:selectAllOnFocus="true"/>
+
+    <Button
+        android:id="@+id/copy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="10dip"
+        android:text="Copy"
+        android:layout_below="@id/output"
+        android:layout_marginRight="10dip"/>
+
+    <Button
+    	android:id="@+id/erase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Erase"
+        android:layout_alignTop="@+id/copy"
+        android:layout_toLeftOf="@+id/copy"/>
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Status: ok"
+        android:layout_marginTop="5dip"
+        android:layout_below="@+id/copy"
+        android:textColor="#0a0"/>
+
+	<TextView
+		android:id="@+id/status2"
+		android:layout_below="@id/status"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textColor="#888"/>
+</RelativeLayout>
