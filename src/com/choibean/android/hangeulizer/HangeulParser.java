@@ -4,24 +4,31 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import android.app.Activity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class HangeulParser implements TextWatcher {
 	private static Pattern vowelPattern;
 
-	private EditText input;
-	private EditText output;
+	protected Activity activity;
+	protected EditText input;
+	protected EditText output;
+	protected TextView preview;
 
 	private static HashMap<String, Integer> consonants;
 	private static HashMap<String, Integer> vowels;
 	private static HashMap<String, Integer> bachims;
 	private static HashMap<String, Integer> jaeums;
 
-	public HangeulParser(EditText input, EditText output) {
-		this.input = input;
-		this.output = output;
+	public HangeulParser(Activity activity) {
+		this.activity = activity;
+		input = (EditText) activity.findViewById(R.id.input);
+		output = (EditText) activity.findViewById(R.id.output);
+		preview = (TextView) activity.findViewById(R.id.preview);
+		input.addTextChangedListener(this);
 		setupObjects();
 	}
 
@@ -88,10 +95,12 @@ public class HangeulParser implements TextWatcher {
 				+ "]");
 		char c = (char) (unicode);
 		Logger.setStatus("status: c=" + c);
-
 		if (finalize) {
 			input.setText("");
 			output.setText(output.getText().append(c));
+			preview.setText("");
+		} else {
+			preview.setText("" + c);
 		}
 	}
 

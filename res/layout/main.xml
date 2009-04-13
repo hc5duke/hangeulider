@@ -3,59 +3,76 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
+	<TextView android:id="@+id/labelPreview"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="Preview" />
+
     <TextView
         android:id="@+id/label"
         android:text="Type here (영어)"
+        android:layout_toLeftOf="@id/labelPreview"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#ffffff"/>
+        android:layout_height="wrap_content" />
+
+	<TextView android:id="@+id/preview"
+		android:layout_below="@id/labelPreview"
+		android:layout_width="80dip"
+		android:layout_height="80dip"
+        android:layout_alignParentRight="true"
+        android:text="X"
+        android:textSize="60dip" android:shadowColor="#f00"/>
 
     <EditText
-        android:id="@+id/entry"
-        android:layout_width="fill_parent"
+        android:id="@+id/input"
         android:layout_height="wrap_content"
         android:background="@android:drawable/editbox_background"
-        android:layout_below="@+id/label"/>
+        android:layout_below="@id/label"
+        android:layout_toLeftOf="@id/preview"
+        android:layout_width="fill_parent"/>
 
     <TextView
     	android:id="@+id/korean"
     	android:text="한글 (Korean):"
     	android:layout_width="wrap_content"
     	android:layout_height="wrap_content"
-    	android:layout_below="@+id/entry"
-        android:textColor="#ffffff"/>
+    	android:layout_below="@id/input"/>
 
     <EditText
         android:id="@+id/output"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@android:drawable/editbox_background"
-        android:layout_below="@+id/korean" android:scrollbars="vertical" android:selectAllOnFocus="true"/>
+        android:layout_below="@id/korean"
+        android:layout_toLeftOf="@id/preview"
+        android:selectAllOnFocus="true"
+        android:textSize="20dip"/>
 
     <Button
         android:id="@+id/copy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
         android:layout_marginLeft="10dip"
         android:text="Copy"
-        android:layout_below="@id/output"
-        android:layout_marginRight="10dip"/>
+        android:layout_below="@id/output"/>
 
     <Button
     	android:id="@+id/erase"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Erase"
-        android:layout_alignTop="@+id/copy"
-        android:layout_toLeftOf="@+id/copy"/>
+        android:layout_toLeftOf="@id/preview"
+        android:layout_marginRight="10dip"
+        android:layout_below="@id/output"/>
+
     <TextView
         android:id="@+id/status"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Status: ok"
         android:layout_marginTop="5dip"
-        android:layout_below="@+id/copy"
+        android:layout_below="@id/erase"
         android:textColor="#0a0"/>
 
 	<TextView
@@ -63,5 +80,5 @@
 		android:layout_below="@id/status"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:textColor="#888"/>
+		android:textColor="#888" />
 </RelativeLayout>
