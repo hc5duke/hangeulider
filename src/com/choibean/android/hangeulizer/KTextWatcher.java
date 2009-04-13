@@ -59,21 +59,27 @@ public class KTextWatcher implements TextWatcher {
 
 		Integer consonant, vowel, bachim = null;
 		vowel = vowels.get(v);
-		if (parts.length > 1)
-			bachim = bachims.get(parts[1]);
 		int unicode = 44032;
 		if (vowel == null) {
 			unicode = 12593;
 			consonant = jaeums.get(parts[0]);
-			if (consonant != null)
+			if (consonant == null) {
+				consonant = jaeums.get(parts[0].charAt(parts[0].length() - 1));
+			}
+			if (consonant != null) {
 				unicode += consonant;
+			}
 		} else {
 			unicode += vowel * 28;
 			consonant = consonants.get(parts[0]);
 			if (consonant != null)
 				unicode += consonant * 588;
-			if (bachim == null)
-				unicode += bachim;
+			if (parts.length > 1) {
+				bachim = bachims.get(parts[1]);
+				if (bachim != null) {
+					unicode += bachim;
+				}
+			}
 		}
 
 		KStatusBar.setStatus("status: [" + consonant + ", " + vowel + ", "
@@ -193,12 +199,12 @@ public class KTextWatcher implements TextWatcher {
 		bachims.put("ck", new Integer(24));
 
 		int j = 0;
-		jaeums.put("g", new Integer(j++)); //g
-		jaeums.put("gg", new Integer(j++));//gg
-		jaeums.put("gs", new Integer(j++));//gs
-		jaeums.put("n", new Integer(j++)); //n
-		jaeums.put("nj", new Integer(j++));//nj
-		jaeums.put("nh", new Integer(j++));//nh
+		jaeums.put("g", new Integer(j++)); // g
+		jaeums.put("gg", new Integer(j++));// gg
+		jaeums.put("gs", new Integer(j++));// gs
+		jaeums.put("n", new Integer(j++)); // n
+		jaeums.put("nj", new Integer(j++));// nj
+		jaeums.put("nh", new Integer(j++));// nh
 		jaeums.put("d", new Integer(j++)); // d
 		jaeums.put("dd", new Integer(j++));// dd
 		jaeums.put("r", new Integer(j++)); // r
