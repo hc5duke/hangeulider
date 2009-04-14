@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, Hangeulizer</string>
+    <string name="typeHere">Type here (영어)</string>
+    <string name="pressSpace">Press spacebar when the syllable is ready</string>
     <string name="app_name">Hangeulizer - Korean Virtual Keyboard</string>
 </resources>

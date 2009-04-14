@@ -17,6 +17,7 @@ public class HangeulParser implements TextWatcher {
 	protected EditText input;
 	protected EditText output;
 	protected TextView preview;
+	protected TextView helper;
 
 	private static HashMap<String, Integer> consonants;
 	private static HashMap<String, Integer> vowels;
@@ -27,7 +28,10 @@ public class HangeulParser implements TextWatcher {
 		this.activity = activity;
 		input = (EditText) activity.findViewById(R.id.input);
 		output = (EditText) activity.findViewById(R.id.output);
+		helper = (TextView) activity.findViewById(R.id.helper);
 		preview = (TextView) activity.findViewById(R.id.preview);
+		// Button myCopy = (Button) findViewById(R.id.copy);
+		// Button myErase = (Button) findViewById(R.id.erase);
 		preview.setText("");
 		input.addTextChangedListener(this);
 		setupObjects();
@@ -63,11 +67,13 @@ public class HangeulParser implements TextWatcher {
 		if (parts.length < 1 || parts[0] == "") {
 			Logger.log("status: \"" + text + "\" is too short");
 			preview.setText("");
+			helper.setText(R.string.typeHere);
 			return;
 		}
 		Logger.log("status: {" + parts[0]
 				+ (parts.length > 1 ? "," + parts[1] : "_") + "}");
 
+		helper.setText(R.string.pressSpace);
 		Integer consonant, vowel, bachim = null;
 		vowel = vowels.get(v);
 		int unicode = 44032;
@@ -216,7 +222,6 @@ public class HangeulParser implements TextWatcher {
 		bachims.put("f", new Integer(27));
 		bachims.put("ph", new Integer(27));
 
-		int j = 0;
 		jaeums.put("g", new Integer(0)); // g
 		jaeums.put("gg", new Integer(1));// gg
 		jaeums.put("gs", new Integer(2));// gs

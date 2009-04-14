@@ -10,8 +10,7 @@ public class Hangeulizer extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 		Logger.setActivity(this);
-		// Button myCopy = (Button) findViewById(R.id.copy);
-		// Button myErase = (Button) findViewById(R.id.erase);
+
 		HangeulParser myParser = new HangeulParser(this);
 	}
 }

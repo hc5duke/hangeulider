@@ -16,20 +16,21 @@ public final class R {
     public static final class id {
         public static final int copy=0x7f050006;
         public static final int erase=0x7f050007;
+        public static final int helper=0x7f050001;
         public static final int input=0x7f050003;
         public static final int korean=0x7f050004;
-        public static final int label=0x7f050001;
         public static final int labelPreview=0x7f050000;
+        public static final int log1=0x7f050008;
+        public static final int log2=0x7f050009;
         public static final int output=0x7f050005;
         public static final int preview=0x7f050002;
-        public static final int status=0x7f050008;
-        public static final int status2=0x7f050009;
     }
     public static final class layout {
         public static final int main=0x7f030000;
     }
     public static final class string {
-        public static final int app_name=0x7f040001;
-        public static final int hello=0x7f040000;
+        public static final int app_name=0x7f040002;
+        public static final int pressSpace=0x7f040001;
+        public static final int typeHere=0x7f040000;
     }
 }

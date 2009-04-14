@@ -32,11 +32,11 @@ public class Logger {
 			color = COLOR_ALERT;
 		}
 		if (currentTextView == null) {
-			currentTextView = (TextView) activity.findViewById(R.id.status);
+			currentTextView = (TextView) activity.findViewById(R.id.log1);
 			currentTextView.setText("");
 		}
 		if (archiveTextView == null) {
-			archiveTextView = (TextView) activity.findViewById(R.id.status2);
+			archiveTextView = (TextView) activity.findViewById(R.id.log2);
 			archiveTextView.setText("");
 		}
 		archivedText.insert(0, '\n').insert(0, currentTextView.getText());
