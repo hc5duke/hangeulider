@@ -2,6 +2,7 @@ package com.choibean.android.hangeulizer;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 
 public class Hangeulizer extends Activity {
 	/** Called when the activity is first created. */

@@ -9,22 +9,22 @@
         android:text="Preview"
         android:layout_width="80dip"/>
 
+	<Button android:id="@+id/preview"
+		android:layout_below="@id/labelPreview"
+		android:layout_width="80dip"
+		android:layout_height="85dip"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center_horizontal"
+        android:text="X"
+        android:textSize="60dip"
+        android:shadowColor="#f00" />
+
     <TextView
         android:id="@+id/helper"
         android:text="@string/type_here"
         android:layout_toLeftOf="@id/labelPreview"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
-
-	<TextView android:id="@+id/preview"
-		android:layout_below="@id/labelPreview"
-		android:layout_width="80dip"
-		android:layout_height="80dip"
-        android:layout_alignParentRight="true"
-        android:layout_gravity="center_horizontal"
-        android:text="X"
-        android:textSize="60dip"
-        android:shadowColor="#f00" android:clickable="true"/>
 
     <EditText
         android:id="@+id/input"

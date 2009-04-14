@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 import android.app.Activity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -16,7 +17,7 @@ public class HangeulParser implements TextWatcher {
 	protected Activity activity;
 	protected EditText input;
 	protected EditText output;
-	protected TextView preview;
+	protected Button preview;
 	protected TextView helper;
 
 	private static HashMap<String, Integer> consonants;
@@ -29,11 +30,14 @@ public class HangeulParser implements TextWatcher {
 		input = (EditText) activity.findViewById(R.id.input);
 		output = (EditText) activity.findViewById(R.id.output);
 		helper = (TextView) activity.findViewById(R.id.helper);
-		preview = (TextView) activity.findViewById(R.id.preview);
+		preview = (Button) activity.findViewById(R.id.preview);
+		// preview.setLongClickable(true); // TODO: han ja
+		preview.setOnClickListener(new PreviewListener(this));
 		// Button myCopy = (Button) findViewById(R.id.copy);
 		// Button myErase = (Button) findViewById(R.id.erase);
 		preview.setText("");
 		input.addTextChangedListener(this);
+
 		setupObjects();
 	}
 
@@ -47,7 +51,8 @@ public class HangeulParser implements TextWatcher {
 		try {
 			String text = s.toString();
 			boolean finalize = false;
-			if (text.indexOf(' ') != -1 || text.indexOf('\t') != -1 || text.indexOf('\n') != -1)
+			if (text.indexOf(' ') != -1 || text.indexOf('\t') != -1
+					|| text.indexOf('\n') != -1)
 				finalize = true;
 			parseText(text, finalize);
 		} catch (Exception e) {
@@ -55,7 +60,15 @@ public class HangeulParser implements TextWatcher {
 		}
 	}
 
-	private void parseText(String text, boolean finalize) {
+	public void grabText() {
+		CharSequence cs = preview.getText();
+		input.setText("");
+		output.setText(output.getText().append(cs));
+		preview.setText("");
+
+	}
+
+	public void parseText(String text, boolean finalize) {
 		String v = "", parts[];
 		text = text.trim();
 		parts = vowelPattern.split(text);
