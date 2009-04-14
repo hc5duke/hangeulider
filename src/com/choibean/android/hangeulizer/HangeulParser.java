@@ -47,7 +47,7 @@ public class HangeulParser implements TextWatcher {
 		try {
 			String text = s.toString();
 			boolean finalize = false;
-			if (text.indexOf(' ') != -1)
+			if (text.indexOf(' ') != -1 || text.indexOf('\t') != -1 || text.indexOf('\n') != -1)
 				finalize = true;
 			parseText(text, finalize);
 		} catch (Exception e) {
@@ -67,13 +67,15 @@ public class HangeulParser implements TextWatcher {
 		if (parts.length < 1 || parts[0] == "") {
 			Logger.log("status: \"" + text + "\" is too short");
 			preview.setText("");
-			helper.setText(R.string.typeHere);
+			helper.setText(R.string.type_here);
+			helper.setTextColor(0xa0ffffff);
 			return;
 		}
 		Logger.log("status: {" + parts[0]
 				+ (parts.length > 1 ? "," + parts[1] : "_") + "}");
 
-		helper.setText(R.string.pressSpace);
+		helper.setText(R.string.press_space);
+		helper.setTextColor(0xd0ffff00);
 		Integer consonant, vowel, bachim = null;
 		vowel = vowels.get(v);
 		int unicode = 44032;

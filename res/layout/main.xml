@@ -4,14 +4,14 @@
     android:layout_height="fill_parent">
 
 	<TextView android:id="@+id/labelPreview"
-		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:text="Preview" />
+        android:text="Preview"
+        android:layout_width="80dip"/>
 
     <TextView
         android:id="@+id/helper"
-        android:text="@string/typeHere"
+        android:text="@string/type_here"
         android:layout_toLeftOf="@id/labelPreview"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
@@ -21,8 +21,10 @@
 		android:layout_width="80dip"
 		android:layout_height="80dip"
         android:layout_alignParentRight="true"
+        android:layout_gravity="center_horizontal"
         android:text="X"
-        android:textSize="60dip" android:shadowColor="#f00"/>
+        android:textSize="60dip"
+        android:shadowColor="#f00" android:clickable="true"/>
 
     <EditText
         android:id="@+id/input"
@@ -64,7 +66,8 @@
         android:text="Erase"
         android:layout_toLeftOf="@id/preview"
         android:layout_marginRight="10dip"
-        android:layout_below="@id/output"/>
+        android:layout_below="@id/output"
+        />
 
     <TextView
         android:id="@+id/log1"
