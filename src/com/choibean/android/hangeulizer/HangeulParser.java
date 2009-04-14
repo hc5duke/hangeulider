@@ -28,6 +28,7 @@ public class HangeulParser implements TextWatcher {
 		input = (EditText) activity.findViewById(R.id.input);
 		output = (EditText) activity.findViewById(R.id.output);
 		preview = (TextView) activity.findViewById(R.id.preview);
+		preview.setText("");
 		input.addTextChangedListener(this);
 		setupObjects();
 	}
@@ -46,7 +47,7 @@ public class HangeulParser implements TextWatcher {
 				finalize = true;
 			parseText(text, finalize);
 		} catch (Exception e) {
-			Logger.setStatus(e.getMessage(), Logger.ERROR);
+			Logger.log(e.getMessage(), Logger.ERROR);
 		}
 	}
 
@@ -59,12 +60,13 @@ public class HangeulParser implements TextWatcher {
 			v = m.group();
 		}
 
-		if (parts.length < 1) {
-			Logger.setStatus("status: \"" + text + "\" is too short");
+		if (parts.length < 1 || parts[0] == "") {
+			Logger.log("status: \"" + text + "\" is too short");
+			preview.setText("");
 			return;
 		}
-		Logger.setStatus("status: [" + parts[0]
-				+ (parts.length > 1 ? "," + parts[1] : "-"));
+		Logger.log("status: {" + parts[0]
+				+ (parts.length > 1 ? "," + parts[1] : "_") + "}");
 
 		Integer consonant, vowel, bachim = null;
 		vowel = vowels.get(v);
@@ -91,10 +93,11 @@ public class HangeulParser implements TextWatcher {
 			}
 		}
 
-		Logger.setStatus("status: [" + consonant + ", " + vowel + ", " + bachim
-				+ "]");
+		Logger
+				.log("status: [" + consonant + ", " + vowel + ", " + bachim
+						+ "]");
 		char c = (char) (unicode);
-		Logger.setStatus("status: c=" + c);
+		Logger.log("status: c=" + c);
 		if (finalize) {
 			input.setText("");
 			output.setText(output.getText().append(c));
@@ -114,33 +117,34 @@ public class HangeulParser implements TextWatcher {
 		jaeums = new HashMap<String, Integer>();
 
 		consonants.put("g", new Integer(0));
+		consonants.put("gh", new Integer(0));
 		consonants.put("gg", new Integer(1));
 		consonants.put("n", new Integer(2));
 		consonants.put("d", new Integer(3));
 		consonants.put("dd", new Integer(4));
+		consonants.put("th", new Integer(4));
 		consonants.put("r", new Integer(5));
+		consonants.put("l", new Integer(5));
 		consonants.put("m", new Integer(6));
 		consonants.put("b", new Integer(7));
+		consonants.put("v", new Integer(7));
 		consonants.put("bb", new Integer(8));
 		consonants.put("s", new Integer(9));
 		consonants.put("sh", new Integer(9));
 		consonants.put("ss", new Integer(10));
 		consonants.put("", new Integer(11));
+		consonants.put("rh", new Integer(11));
 		consonants.put("j", new Integer(12));
 		consonants.put("jj", new Integer(13));
+		consonants.put("z", new Integer(13));
 		consonants.put("ch", new Integer(14));
 		consonants.put("k", new Integer(15));
+		consonants.put("q", new Integer(15));
 		consonants.put("t", new Integer(16));
 		consonants.put("p", new Integer(17));
 		consonants.put("h", new Integer(18));
-		consonants.put("gh", new Integer(0));
-		consonants.put("z", new Integer(12));
-		consonants.put("v", new Integer(7));
 		consonants.put("f", new Integer(18));
 		consonants.put("ph", new Integer(18));
-		consonants.put("q", new Integer(15));
-		consonants.put("rh", new Integer(11));
-		consonants.put("l", new Integer(5));
 
 		vowels.put("a", new Integer(0));
 		vowels.put("ae", new Integer(1));
@@ -171,6 +175,7 @@ public class HangeulParser implements TextWatcher {
 		vowels.put("ee", new Integer(20));
 		vowels.put("yi", new Integer(20));
 		vowels.put("yee", new Integer(20));
+		vowels.put("y", new Integer(20));
 
 		bachims.put("g", new Integer(1));
 		bachims.put("gg", new Integer(2));
@@ -204,41 +209,45 @@ public class HangeulParser implements TextWatcher {
 		bachims.put("j", new Integer(22));
 		bachims.put("ch", new Integer(23));
 		bachims.put("k", new Integer(24));
+		bachims.put("ck", new Integer(24));
 		bachims.put("t", new Integer(25));
 		bachims.put("p", new Integer(26));
 		bachims.put("h", new Integer(27));
-		bachims.put("ck", new Integer(24));
+		bachims.put("f", new Integer(27));
+		bachims.put("ph", new Integer(27));
 
 		int j = 0;
-		jaeums.put("g", new Integer(j++)); // g
-		jaeums.put("gg", new Integer(j++));// gg
-		jaeums.put("gs", new Integer(j++));// gs
-		jaeums.put("n", new Integer(j++)); // n
-		jaeums.put("nj", new Integer(j++));// nj
-		jaeums.put("nh", new Integer(j++));// nh
-		jaeums.put("d", new Integer(j++)); // d
-		jaeums.put("dd", new Integer(j++));// dd
-		jaeums.put("r", new Integer(j++)); // r
-		jaeums.put("rg", new Integer(j++));// rg
-		jaeums.put("rm", new Integer(j++));// rm
-		jaeums.put("rb", new Integer(j++));// rb
-		jaeums.put("rs", new Integer(j++));// rs
-		jaeums.put("rt", new Integer(j++));// rt
-		jaeums.put("rp", new Integer(j++));// rp
-		jaeums.put("rh", new Integer(j++));// rh
-		jaeums.put("m", new Integer(j++));// m
-		jaeums.put("b", new Integer(j++));// b
-		jaeums.put("bb", new Integer(j++));// bb
-		jaeums.put("bs", new Integer(j++));// bs
-		jaeums.put("s", new Integer(j++));// s
-		jaeums.put("ss", new Integer(j++));// ss
-		jaeums.put("ng", new Integer(j++));// -
-		jaeums.put("j", new Integer(j++));// j
-		jaeums.put("jj", new Integer(j++));// jj
-		jaeums.put("ch", new Integer(j++));// ch
-		jaeums.put("k", new Integer(j++));// k
-		jaeums.put("t", new Integer(j++));// t
-		jaeums.put("p", new Integer(j++));// p
-		jaeums.put("h", new Integer(j++));// h
+		jaeums.put("g", new Integer(0)); // g
+		jaeums.put("gg", new Integer(1));// gg
+		jaeums.put("gs", new Integer(2));// gs
+		jaeums.put("n", new Integer(3)); // n
+		jaeums.put("nj", new Integer(4));// nj
+		jaeums.put("nh", new Integer(5));// nh
+		jaeums.put("d", new Integer(6)); // d
+		jaeums.put("dd", new Integer(7));// dd
+		jaeums.put("r", new Integer(8)); // r
+		jaeums.put("rg", new Integer(9));// rg
+		jaeums.put("rm", new Integer(10));// rm
+		jaeums.put("rb", new Integer(11));// rb
+		jaeums.put("rs", new Integer(12));// rs
+		jaeums.put("rt", new Integer(13));// rt
+		jaeums.put("rp", new Integer(14));// rp
+		jaeums.put("rh", new Integer(15));// rh
+		jaeums.put("m", new Integer(16));// m
+		jaeums.put("b", new Integer(17));// b
+		jaeums.put("bb", new Integer(18));// bb
+		jaeums.put("bs", new Integer(19));// bs
+		jaeums.put("s", new Integer(20));// s
+		jaeums.put("ss", new Integer(21));// ss
+		jaeums.put("ng", new Integer(22));// -
+		jaeums.put("j", new Integer(23));// j
+		jaeums.put("jj", new Integer(24));// jj
+		jaeums.put("ch", new Integer(25));// ch
+		jaeums.put("k", new Integer(26));// k
+		jaeums.put("t", new Integer(27));// t
+		jaeums.put("p", new Integer(28));// p
+		jaeums.put("h", new Integer(29));// h
+		jaeums.put("f", new Integer(29));
+		jaeums.put("ph", new Integer(29));
 	}
 }
