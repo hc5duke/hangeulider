@@ -14,23 +14,29 @@ public final class R {
         public static final int icon=0x7f020000;
     }
     public static final class id {
-        public static final int copy=0x7f050006;
-        public static final int erase=0x7f050007;
-        public static final int helper=0x7f050002;
-        public static final int input=0x7f050003;
-        public static final int korean=0x7f050004;
-        public static final int labelPreview=0x7f050000;
-        public static final int log1=0x7f050008;
-        public static final int log2=0x7f050009;
-        public static final int output=0x7f050005;
-        public static final int preview=0x7f050001;
+        public static final int copy=0x7f060006;
+        public static final int dubeolshik=0x7f06000a;
+        public static final int erase=0x7f060007;
+        public static final int helper=0x7f060002;
+        public static final int input=0x7f060003;
+        public static final int konglish=0x7f06000b;
+        public static final int korean=0x7f060004;
+        public static final int labelPreview=0x7f060000;
+        public static final int log1=0x7f060008;
+        public static final int log2=0x7f060009;
+        public static final int output=0x7f060005;
+        public static final int preview=0x7f060001;
     }
     public static final class layout {
         public static final int main=0x7f030000;
     }
+    public static final class menu {
+        public static final int main_menu=0x7f050000;
+    }
     public static final class string {
-        public static final int app_name=0x7f040002;
-        public static final int press_space=0x7f040001;
-        public static final int type_here=0x7f040000;
+        public static final int app_name=0x7f040003;
+        public static final int dubeolshik_mode=0x7f040000;
+        public static final int press_space=0x7f040002;
+        public static final int type_here=0x7f040001;
     }
 }

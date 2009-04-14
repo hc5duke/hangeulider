@@ -20,11 +20,12 @@ public class Logger {
 		log("", 0);
 	}
 
-	public static void log(String text) {
-		log(text, 0);
+	public static void log(Object o) {
+		log(o, 0);
 	}
 
-	public static void log(String text, int status) {
+	public static void log(Object o, int status) {
+		String text = o.toString();
 		int color = COLOR_OK;
 		if (status == -1) {
 			color = COLOR_ERROR;
