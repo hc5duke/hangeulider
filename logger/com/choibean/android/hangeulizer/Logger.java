@@ -17,13 +17,14 @@ public class Logger {
 
 	public static void setActivity(Activity a) {
 		activity = a;
+		log("", 0);
 	}
 
-	public static void setStatus(String text) {
-		setStatus(text, 0);
+	public static void log(String text) {
+		log(text, 0);
 	}
 
-	public static void setStatus(String text, int status) {
+	public static void log(String text, int status) {
 		int color = COLOR_OK;
 		if (status == -1) {
 			color = COLOR_ERROR;
@@ -32,9 +33,11 @@ public class Logger {
 		}
 		if (currentTextView == null) {
 			currentTextView = (TextView) activity.findViewById(R.id.status);
+			currentTextView.setText("");
 		}
 		if (archiveTextView == null) {
 			archiveTextView = (TextView) activity.findViewById(R.id.status2);
+			archiveTextView.setText("");
 		}
 		archivedText.insert(0, '\n').insert(0, currentTextView.getText());
 		archiveTextView.setText(archivedText);
