@@ -97,9 +97,9 @@ public class HangeulParser implements TextWatcher {
 				sb.append(s);
 			}
 		}
+		parseKonglish(sb.toString(), finalize);
 		sb.insert(0, ">").insert(0, text).insert(0, "[dbs]");
 		Logger.log(sb);
-		parseKonglish(sb.toString(), finalize);
 	}
 
 	public void parseKonglish(String text, boolean finalize) {
