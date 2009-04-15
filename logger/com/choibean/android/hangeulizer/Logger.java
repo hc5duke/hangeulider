@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.widget.TextView;
 
 public class Logger {
+	public static final boolean debug = false;
+
 	public static int ERROR = -1;
 	public static int OK = 0;
 	public static int ALERT = 1;
@@ -25,6 +27,8 @@ public class Logger {
 	}
 
 	public static void log(Object o, int status) {
+		if (!debug)
+			return;
 		String text = o.toString();
 		int color = COLOR_OK;
 		if (status == -1) {

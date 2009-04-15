@@ -5,6 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import android.app.Activity;
+import android.text.ClipboardManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.Button;
@@ -18,6 +19,8 @@ public class HangeulParser implements TextWatcher {
 	protected EditText input;
 	protected EditText output;
 	protected Button preview;
+	protected Button erase;
+	protected Button copy;
 	protected TextView helper;
 
 	private static HashMap<String, Integer> consonants;
@@ -32,10 +35,17 @@ public class HangeulParser implements TextWatcher {
 		output = (EditText) activity.findViewById(R.id.output);
 		helper = (TextView) activity.findViewById(R.id.helper);
 		preview = (Button) activity.findViewById(R.id.preview);
+		preview.setOnClickListener(new PreviewButtonListener(this));
 		// preview.setLongClickable(true); // TODO: han ja
-		preview.setOnClickListener(new PreviewListener(this));
-		// Button myCopy = (Button) findViewById(R.id.copy);
-		// Button myErase = (Button) findViewById(R.id.erase);
+
+		erase = (Button) activity.findViewById(R.id.erase);
+		erase.setOnClickListener(new EraseButtonListener(output));
+
+		ClipboardManager manager = (ClipboardManager) activity
+				.getSystemService(android.content.Context.CLIPBOARD_SERVICE);
+		copy = (Button) activity.findViewById(R.id.copy);
+		copy.setOnClickListener(new CopyButtonListener(output, manager));
+
 		preview.setText("");
 		input.addTextChangedListener(this);
 
