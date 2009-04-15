@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import android.app.Activity;
 import android.text.ClipboardManager;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -15,11 +14,11 @@ import android.widget.TextView;
 public class HangeulParser implements TextWatcher {
 	private static Pattern vowelPattern;
 
-	protected Activity activity;
-	protected EditText input;
-	protected EditText output;
+	protected Hangeulizer hangeulizer;
+	public EditText input;
+	public EditText output;
 	protected Button preview;
-	protected Button erase;
+	protected Button mode;
 	protected Button copy;
 	protected TextView helper;
 
@@ -29,26 +28,29 @@ public class HangeulParser implements TextWatcher {
 	private static HashMap<String, Integer> jaeums;
 	private static HashMap<String, String> dubs;
 
-	public HangeulParser(Activity activity) {
-		this.activity = activity;
-		input = (EditText) activity.findViewById(R.id.input);
-		output = (EditText) activity.findViewById(R.id.output);
-		helper = (TextView) activity.findViewById(R.id.helper);
-		preview = (Button) activity.findViewById(R.id.preview);
+	public HangeulParser(Hangeulizer h) {
+		this.hangeulizer = h;
+		input = (EditText) hangeulizer.findViewById(R.id.input);
+		output = (EditText) hangeulizer.findViewById(R.id.output);
+		helper = (TextView) hangeulizer.findViewById(R.id.helper);
+		preview = (Button) hangeulizer.findViewById(R.id.preview);
+		preview.setText("");
 		preview.setOnClickListener(new PreviewButtonListener(this));
 		// preview.setLongClickable(true); // TODO: han ja
 
-		erase = (Button) activity.findViewById(R.id.erase);
-		erase.setOnClickListener(new EraseButtonListener(output));
-
-		ClipboardManager manager = (ClipboardManager) activity
+		ClipboardManager manager = (ClipboardManager) hangeulizer
 				.getSystemService(android.content.Context.CLIPBOARD_SERVICE);
-		copy = (Button) activity.findViewById(R.id.copy);
+		copy = (Button) hangeulizer.findViewById(R.id.copy);
 		copy.setOnClickListener(new CopyButtonListener(output, manager));
 
-		preview.setText("");
-		input.addTextChangedListener(this);
+		MyButtonListener buttonListener = new MyButtonListener(hangeulizer,
+				output);
+		mode = (Button) hangeulizer.findViewById(R.id.mode);
+		mode.setOnClickListener(buttonListener);
+		Logger.log("there");
 
+		input.addTextChangedListener(this);
+		input.requestFocus();
 		setupObjects();
 	}
 
@@ -65,7 +67,7 @@ public class HangeulParser implements TextWatcher {
 			if (text.indexOf(' ') != -1 || text.indexOf('\t') != -1
 					|| text.indexOf('\n') != -1)
 				finalize = true;
-			if (Hangeulizer.inputMode == Hangeulizer.modeDuBeolShik) {
+			if (hangeulizer.getDubeolshikMode()) {
 				parseDuBeolShik(text, finalize);
 			} else {
 				parseKonglish(text, finalize);
@@ -95,11 +97,13 @@ public class HangeulParser implements TextWatcher {
 				sb.append(s);
 			}
 		}
-		Logger.log("[dbs] " + text + " > " + sb.toString());
+		sb.insert(0, ">").insert(0, text).insert(0, "[dbs]");
+		Logger.log(sb);
 		parseKonglish(sb.toString(), finalize);
 	}
 
 	public void parseKonglish(String text, boolean finalize) {
+		StringBuffer log;
 		String v = "", parts[];
 		text = text.trim().toLowerCase();
 		parts = vowelPattern.split(text);
@@ -109,14 +113,15 @@ public class HangeulParser implements TextWatcher {
 		}
 
 		if (parts.length < 1 || parts[0] == "") {
-			Logger.log("status: \"" + text + "\" is too short");
+			Logger.log("[status] \"" + text + "\" is too short");
 			preview.setText("");
-			helper.setText(R.string.type_here);
-			helper.setTextColor(0xa0ffffff);
+			setModeText();
 			return;
 		}
-		Logger.log("status: {" + parts[0]
-				+ (parts.length > 1 ? "," + parts[1] : "_") + "}");
+		// log = new
+		// StringBuffer("[parts] ").append(parts[0]).append(',').append(
+		// (parts.length > 1 ? parts[1] : '_'));
+		// Logger.log(log);
 
 		helper.setText(R.string.press_space);
 		helper.setTextColor(0xd0ffff00);
@@ -145,11 +150,13 @@ public class HangeulParser implements TextWatcher {
 			}
 		}
 
-		Logger
-				.log("status: [" + consonant + ", " + vowel + ", " + bachim
-						+ "]");
+		log = new StringBuffer("[status]").append(consonant).append(',')
+				.append(vowel).append(',').append(bachim);
+		Logger.log(log);
+
 		char c = (char) (unicode);
-		Logger.log("status: c=" + c);
+		Logger.log(new StringBuffer("[status]").append(c));
+
 		if (finalize) {
 			input.setText("");
 			output.setText(output.getText().append(c));
@@ -157,6 +164,22 @@ public class HangeulParser implements TextWatcher {
 		} else {
 			preview.setText("" + c);
 		}
+	}
+
+	public void setModeText() {
+		if (hangeulizer.getDubeolshikMode()) {
+			if (helper != null)
+				helper.setText(R.string.type_here2);
+			if (mode != null)
+				mode.setText(R.string.dbs_on);
+		} else {
+			if (helper != null)
+				helper.setText(R.string.type_here1);
+			if (mode != null)
+				mode.setText(R.string.dbs_off);
+		}
+		if (helper != null)
+			helper.setTextColor(0xa0ffffff);
 	}
 
 	private static void setupObjects() {
@@ -193,6 +216,8 @@ public class HangeulParser implements TextWatcher {
 		consonants.put("z", new Integer(13));
 		consonants.put("ch", new Integer(14));
 		consonants.put("k", new Integer(15));
+		consonants.put("c", new Integer(15));
+		consonants.put("kh", new Integer(15));
 		consonants.put("q", new Integer(15));
 		consonants.put("t", new Integer(16));
 		consonants.put("p", new Integer(17));
@@ -211,8 +236,10 @@ public class HangeulParser implements TextWatcher {
 		vowels.put("o", new Integer(8));
 		vowels.put("wa", new Integer(9));
 		vowels.put("oa", new Integer(9));
+		vowels.put("ua", new Integer(9));
 		vowels.put("wae", new Integer(10));
 		vowels.put("oae", new Integer(10));
+		vowels.put("uae", new Integer(10));
 		vowels.put("oi", new Integer(11));
 		vowels.put("yo", new Integer(12));
 		vowels.put("u", new Integer(13));
@@ -283,6 +310,7 @@ public class HangeulParser implements TextWatcher {
 		jaeums.put("d", new Integer(6)); // d
 		jaeums.put("dd", new Integer(7));// dd
 		jaeums.put("r", new Integer(8)); // r
+		jaeums.put("l", new Integer(8)); // l
 		jaeums.put("rg", new Integer(9));// rg
 		jaeums.put("rm", new Integer(10));// rm
 		jaeums.put("rb", new Integer(11));// rb
@@ -301,6 +329,7 @@ public class HangeulParser implements TextWatcher {
 		jaeums.put("jj", new Integer(24));// jj
 		jaeums.put("ch", new Integer(25));// ch
 		jaeums.put("k", new Integer(26));// k
+		jaeums.put("q", new Integer(26));// q
 		jaeums.put("t", new Integer(27));// t
 		jaeums.put("p", new Integer(28));// p
 		jaeums.put("h", new Integer(29));// h

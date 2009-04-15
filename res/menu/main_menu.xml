@@ -3,9 +3,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/dubeolshik"
-        android:title="DuBeolShik" />
+        android:alphabeticShortcut="d" android:numericShortcut="2" android:checked="false" android:checkable="true" android:title="DuBeolShik Mode"/>
 
-    <item android:id="@+id/konglish"
-        android:title="Konglish" />
+    
 
 </menu>

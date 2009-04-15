@@ -16,14 +16,13 @@ public final class R {
     public static final class id {
         public static final int copy=0x7f060006;
         public static final int dubeolshik=0x7f06000a;
-        public static final int erase=0x7f060007;
         public static final int helper=0x7f060002;
         public static final int input=0x7f060003;
-        public static final int konglish=0x7f06000b;
         public static final int korean=0x7f060004;
         public static final int labelPreview=0x7f060000;
         public static final int log1=0x7f060008;
         public static final int log2=0x7f060009;
+        public static final int mode=0x7f060007;
         public static final int output=0x7f060005;
         public static final int preview=0x7f060001;
     }
@@ -34,8 +33,11 @@ public final class R {
         public static final int main_menu=0x7f050000;
     }
     public static final class string {
-        public static final int app_name=0x7f040002;
-        public static final int press_space=0x7f040001;
-        public static final int type_here=0x7f040000;
+        public static final int app_name=0x7f040003;
+        public static final int dbs_off=0x7f040004;
+        public static final int dbs_on=0x7f040005;
+        public static final int press_space=0x7f040002;
+        public static final int type_here1=0x7f040000;
+        public static final int type_here2=0x7f040001;
     }
 }

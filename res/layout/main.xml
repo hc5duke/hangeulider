@@ -21,7 +21,7 @@
 
     <TextView
         android:id="@+id/helper"
-        android:text="@string/type_here"
+        android:text="@string/type_here1"
         android:layout_toLeftOf="@id/labelPreview"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
@@ -56,18 +56,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dip"
+        android:width="100dip"
         android:text="Copy"
         android:layout_below="@id/output"/>
 
     <Button
-    	android:id="@+id/erase"
+        android:id="@+id/mode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Erase"
-        android:layout_toLeftOf="@id/preview"
-        android:layout_marginRight="10dip"
-        android:layout_below="@id/output"
-        />
+        android:layout_toRightOf="@id/copy"
+        android:width="100dip"
+        android:text="@string/dbs_off"
+        android:layout_below="@id/output"/>
 
     <TextView
         android:id="@+id/log1"
@@ -75,7 +75,7 @@
         android:layout_height="wrap_content"
         android:text="Status: ok"
         android:layout_marginTop="5dip"
-        android:layout_below="@id/erase"
+        android:layout_below="@id/copy"
         android:textColor="#0a0"/>
 
 	<TextView

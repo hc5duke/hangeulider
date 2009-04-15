@@ -16,5 +16,6 @@ public class CopyButtonListener implements OnClickListener {
 
 	public void onClick(View v) {
 		this.clipboard.setText(this.view.getText());
+		//
 	}
 }

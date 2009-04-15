@@ -1,10 +1,11 @@
 package com.choibean.android.hangeulizer;
 
 import android.app.Activity;
+import android.view.View;
 import android.widget.TextView;
 
 public class Logger {
-	public static final boolean debug = false;
+	public static final boolean debug = true;
 
 	public static int ERROR = -1;
 	public static int OK = 0;
@@ -19,7 +20,14 @@ public class Logger {
 
 	public static void setActivity(Activity a) {
 		activity = a;
-		log("", 0);
+		currentTextView = (TextView) activity.findViewById(R.id.log1);
+		currentTextView.setText("");
+		archiveTextView = (TextView) activity.findViewById(R.id.log2);
+		archiveTextView.setText("");
+		if (!debug) {
+			currentTextView.setVisibility(View.GONE);
+			archiveTextView.setVisibility(View.GONE);
+		}
 	}
 
 	public static void log(Object o) {
@@ -27,7 +35,7 @@ public class Logger {
 	}
 
 	public static void log(Object o, int status) {
-		if (!debug)
+		if (!debug || o == null)
 			return;
 		String text = o.toString();
 		int color = COLOR_OK;
@@ -36,19 +44,14 @@ public class Logger {
 		} else if (status == 1) {
 			color = COLOR_ALERT;
 		}
-		if (currentTextView == null) {
-			currentTextView = (TextView) activity.findViewById(R.id.log1);
-			currentTextView.setText("");
-		}
-		if (archiveTextView == null) {
-			archiveTextView = (TextView) activity.findViewById(R.id.log2);
-			archiveTextView.setText("");
-		}
 		archivedText.insert(0, '\n').insert(0, currentTextView.getText());
-		archiveTextView.setText(archivedText);
-
-		currentTextView.setBackgroundColor(color);
-		currentTextView.setText(text);
+		if (archiveTextView != null) {
+			archiveTextView.setText(archivedText);
+		}
+		if (currentTextView != null) {
+			currentTextView.setBackgroundColor(color);
+			currentTextView.setText(text);
+		}
 	}
 
 }
