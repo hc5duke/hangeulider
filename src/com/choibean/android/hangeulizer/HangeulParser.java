@@ -24,6 +24,7 @@ public class HangeulParser implements TextWatcher {
 	private static HashMap<String, Integer> vowels;
 	private static HashMap<String, Integer> bachims;
 	private static HashMap<String, Integer> jaeums;
+	private static HashMap<String, String> dubs;
 
 	public HangeulParser(Activity activity) {
 		this.activity = activity;
@@ -54,7 +55,11 @@ public class HangeulParser implements TextWatcher {
 			if (text.indexOf(' ') != -1 || text.indexOf('\t') != -1
 					|| text.indexOf('\n') != -1)
 				finalize = true;
-			parseText(text, finalize);
+			if (Hangeulizer.inputMode == Hangeulizer.modeDuBeolShik) {
+				parseDuBeolShik(text, finalize);
+			} else {
+				parseKonglish(text, finalize);
+			}
 		} catch (Exception e) {
 			Logger.log(e.getMessage(), Logger.ERROR);
 		}
@@ -65,12 +70,28 @@ public class HangeulParser implements TextWatcher {
 		input.setText("");
 		output.setText(output.getText().append(cs));
 		preview.setText("");
-
 	}
 
-	public void parseText(String text, boolean finalize) {
+	public void parseDuBeolShik(String text, boolean finalize) {
+		StringBuffer sb = new StringBuffer();
+		int length = text.length();
+		for (int i = 0; i < length; i++) {
+			String c = text.substring(i, i + 1);
+			String s = dubs.get(c);
+			if (s == null) {
+				s = dubs.get(c.toLowerCase());
+			}
+			if (s != null) {
+				sb.append(s);
+			}
+		}
+		Logger.log("[dbs] " + text + " > " + sb.toString());
+		parseKonglish(sb.toString(), finalize);
+	}
+
+	public void parseKonglish(String text, boolean finalize) {
 		String v = "", parts[];
-		text = text.trim();
+		text = text.trim().toLowerCase();
 		parts = vowelPattern.split(text);
 		Matcher m = vowelPattern.matcher(text);
 		if (m.find()) {
@@ -136,6 +157,7 @@ public class HangeulParser implements TextWatcher {
 		vowels = new HashMap<String, Integer>();
 		bachims = new HashMap<String, Integer>();
 		jaeums = new HashMap<String, Integer>();
+		dubs = new HashMap<String, String>();
 
 		consonants.put("g", new Integer(0));
 		consonants.put("gh", new Integer(0));
@@ -154,6 +176,7 @@ public class HangeulParser implements TextWatcher {
 		consonants.put("sh", new Integer(9));
 		consonants.put("ss", new Integer(10));
 		consonants.put("", new Integer(11));
+		consonants.put("ng", new Integer(11));
 		consonants.put("rh", new Integer(11));
 		consonants.put("j", new Integer(12));
 		consonants.put("jj", new Integer(13));
@@ -177,14 +200,18 @@ public class HangeulParser implements TextWatcher {
 		vowels.put("ye", new Integer(7));
 		vowels.put("o", new Integer(8));
 		vowels.put("wa", new Integer(9));
+		vowels.put("oa", new Integer(9));
 		vowels.put("wae", new Integer(10));
+		vowels.put("oae", new Integer(10));
 		vowels.put("oi", new Integer(11));
 		vowels.put("yo", new Integer(12));
 		vowels.put("u", new Integer(13));
 		vowels.put("oo", new Integer(13));
 		vowels.put("weo", new Integer(14));
+		vowels.put("ueo", new Integer(14));
 		vowels.put("wo", new Integer(14));
 		vowels.put("we", new Integer(15));
+		vowels.put("ue", new Integer(15));
 		vowels.put("wee", new Integer(16));
 		vowels.put("wi", new Integer(16));
 		vowels.put("ui", new Integer(16));
@@ -269,5 +296,43 @@ public class HangeulParser implements TextWatcher {
 		jaeums.put("h", new Integer(29));// h
 		jaeums.put("f", new Integer(29));
 		jaeums.put("ph", new Integer(29));
+
+		dubs.put("q", "b");
+		dubs.put("Q", "bb");
+		dubs.put("w", "j");
+		dubs.put("W", "jj");
+		dubs.put("e", "d");
+		dubs.put("E", "dd");
+		dubs.put("r", "g");
+		dubs.put("R", "gg");
+		dubs.put("t", "s");
+		dubs.put("T", "ss");
+
+		dubs.put("y", "yo");
+		dubs.put("u", "yeo");
+		dubs.put("i", "ya");
+		dubs.put("o", "ae");
+		dubs.put("O", "yae");
+		dubs.put("p", "e");
+
+		dubs.put("a", "m");
+		dubs.put("s", "n");
+		dubs.put("d", "ng");
+		dubs.put("f", "r");
+		dubs.put("g", "h");
+
+		dubs.put("h", "o");
+		dubs.put("j", "eo");
+		dubs.put("k", "a");
+		dubs.put("l", "i");
+
+		dubs.put("z", "k");
+		dubs.put("x", "t");
+		dubs.put("c", "ch");
+		dubs.put("v", "p");
+
+		dubs.put("b", "yu");
+		dubs.put("n", "u");
+		dubs.put("m", "i");
 	}
 }

@@ -8,8 +8,10 @@ import android.view.MenuItem;
 
 public class Hangeulizer extends Activity {
 
-	private inputMode = 
-	
+	public static final int modeDuBeolShik = 0;
+	public static final int modeKonglish = 1;
+	public static int inputMode = modeDuBeolShik;
+
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -33,9 +35,12 @@ public class Hangeulizer extends Activity {
 		Logger.log("[menu] " + item.getItemId());
 		switch (item.getItemId()) {
 		case R.id.dubeolshik:
+			inputMode = modeDuBeolShik;
+			Logger.log("[mode] 2bs");
 			break;
 		case R.id.konglish:
-
+			inputMode = modeKonglish;
+			Logger.log("[mode] kng");
 			break;
 		}
 		return false;
