@@ -1,5 +1,7 @@
 package com.choibean.android.hangeulizer;
 
+import com.choibean.android.hangeulize.R;
+
 import android.app.Activity;
 import android.view.View;
 import android.widget.TextView;
