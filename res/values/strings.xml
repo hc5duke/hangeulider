@@ -8,4 +8,5 @@
 <string name="dbs_on">두벌식: ON</string>
 <string name="notification_title">Hangeulize!</string>
 <string name="notification_motto">한글 Virtual Keyboard</string>
+<string name="help">Help!</string>
 </resources>

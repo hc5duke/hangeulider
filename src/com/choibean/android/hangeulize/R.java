@@ -14,16 +14,16 @@ public final class R {
         public static final int flag=0x7f020000;
         public static final int icon=0x7f020001;
         public static final int taegeuk=0x7f020002;
-        public static final int transparent_background=0x7f020003;
     }
     public static final class id {
         public static final int copyButton=0x7f060006;
-        public static final int dubeolshik=0x7f060009;
+        public static final int dubeolshikMenuItem=0x7f060009;
         public static final int helpButton=0x7f060008;
         public static final int helperLabel=0x7f060002;
         public static final int inputEdit=0x7f060003;
         public static final int koreanLabel=0x7f060004;
         public static final int modeButton=0x7f060007;
+        public static final int notificationMenuItem=0x7f06000a;
         public static final int outputEdit=0x7f060005;
         public static final int previewButton=0x7f060001;
         public static final int previewLabel=0x7f060000;
@@ -38,6 +38,7 @@ public final class R {
         public static final int app_name=0x7f040003;
         public static final int dbs_off=0x7f040004;
         public static final int dbs_on=0x7f040005;
+        public static final int help=0x7f040008;
         public static final int notification_motto=0x7f040007;
         public static final int notification_title=0x7f040006;
         public static final int press_space=0x7f040002;

@@ -20,6 +20,7 @@ public class Hangeulize extends Activity {
 	protected static final int modeKonglish = 1;
 	protected static int inputMode = 1;
 	protected NotificationManager mNotificationManager;
+	protected Menu mMenu = null;
 	private int YOURAPP_NOTIFICATION_ID = 30294;
 
 	/** Called when the activity is first created. */
@@ -27,26 +28,26 @@ public class Hangeulize extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+		parser = new HangeulParser(this);
+		setDubeolshikMode(false);
 
-		if (savedInstanceState == null) {
-			Log.d("Hangeul", "onCreate(null)");
-			parser = new HangeulParser(this);
-			setDubeolshikMode(false);
-		} else {
-			Log.d("Hangeul", "onCreate(**something**)");
-		}
+		// if (savedInstanceState == null) {
+		// Log.d("Hangeul", "onCreate(null)");
+		// } else {
+		// Log.d("Hangeul", "onCreate(**something**)");
+		// }
 	}
 
-	@Override
-	protected void onSaveInstanceState(Bundle outState) {
-		super.onSaveInstanceState(outState);
-		Log.d("Hangeul", "onSIS: got to Child");
-	}
+	// @Override
+	// protected void onSaveInstanceState(Bundle outState) {
+	// super.onSaveInstanceState(outState);
+	// Log.d("Hangeul", "onSIS: got to Child");
+	// }
 
 	@Override
 	protected void onStart() {
 		super.onStart();
-		notify(this, true);
+		sendNotification(this);
 		Log.d("status", "start");
 	}
 
@@ -56,7 +57,7 @@ public class Hangeulize extends Activity {
 		Log.d("status", "stop");
 	}
 
-	protected void notify(Context context, Boolean on) {
+	protected void sendNotification(Context context) {
 		mNotificationManager = (NotificationManager) context
 				.getSystemService(Context.NOTIFICATION_SERVICE);
 		ComponentName comp = new ComponentName(context.getPackageName(),
@@ -69,22 +70,32 @@ public class Hangeulize extends Activity {
 		n.setLatestEventInfo(context, getString(R.string.notification_title),
 				getString(R.string.notification_motto), pendingIntent);
 		mNotificationManager.notify(YOURAPP_NOTIFICATION_ID, n);
+		if (mMenu != null) {
+			MenuItem notiMode = mMenu.findItem(R.id.notificationMenuItem);
+			notiMode.setChecked(true);
+		}
+	}
+
+	protected void cancelNotification() {
+		mNotificationManager.cancel(YOURAPP_NOTIFICATION_ID);
+		if (mMenu != null) {
+			MenuItem notiMode = mMenu.findItem(R.id.notificationMenuItem);
+			notiMode.setChecked(false);
+		}
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.main_menu, menu);
-		MenuItem dbs = menu.findItem(R.id.dubeolshik);
-		Log.d("mode", String.valueOf(getDubeolshikMode()));
-		if (getDubeolshikMode()) {
-			dbs.setIcon(android.R.drawable.checkbox_on_background);
-			dbs.setChecked(true);
-		} else {
-			dbs.setIcon(android.R.drawable.checkbox_off_background);
-			dbs.setChecked(false);
-		}
+		mMenu = menu;
 		return true;
+	}
+
+	@Override
+	public boolean onMenuOpened(int featureId, Menu menu) {
+		Log.d("mode", String.valueOf(getDubeolshikMode()));
+		return super.onMenuOpened(featureId, menu);
 	}
 
 	@Override
@@ -104,15 +115,19 @@ public class Hangeulize extends Activity {
 	}
 
 	public boolean getDubeolshikMode() {
-		return (inputMode == modeDuBeolShik);
+		return (Hangeulize.inputMode == modeDuBeolShik);
 	}
 
 	public void setDubeolshikMode(boolean dubeolshik) {
 		Log.d("mode", String.valueOf(dubeolshik));
-		if (dubeolshik) {
-			inputMode = modeDuBeolShik;
-		} else {
-			inputMode = modeKonglish;
+		Hangeulize.inputMode = dubeolshik ? modeDuBeolShik : modeKonglish;
+
+		if (mMenu != null) {
+			MenuItem dbsMode = mMenu.findItem(R.id.dubeolshikMenuItem);
+			int iconId = dubeolshik ? android.R.drawable.checkbox_on_background
+					: android.R.drawable.checkbox_off_background;
+			dbsMode.setIcon(iconId);
+			dbsMode.setChecked(dubeolshik);
 		}
 		parser.setModeText();
 	}

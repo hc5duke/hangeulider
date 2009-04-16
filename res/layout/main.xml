@@ -75,9 +75,8 @@
         android:id="@+id/helpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/copyButton"
-        android:width="100dip"
-        android:text="@string/dbs_off"
+        android:layout_toRightOf="@id/modeButton"
+        android:text="@string/help"
         android:layout_below="@id/outputEdit"
-        />
+         android:width="100dip"/>
 </RelativeLayout>

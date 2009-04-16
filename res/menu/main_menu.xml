@@ -2,9 +2,9 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/dubeolshik"
-        android:alphabeticShortcut="d" android:numericShortcut="2" android:checked="false" android:checkable="true" android:title="DuBeolShik Mode"/>
+    <item android:alphabeticShortcut="d" android:numericShortcut="2" android:checked="false" android:checkable="true" android:title="DuBeolShik Mode" android:id="@+id/dubeolshikMenuItem"/>
 
     
 
+<item android:id="@+id/notificationMenuItem" android:titleCondensed="Notification" android:title="Toggle Notification"></item>
 </menu>
