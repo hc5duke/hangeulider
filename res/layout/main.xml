@@ -49,7 +49,7 @@
         android:layout_below="@id/korean"
         android:layout_toLeftOf="@id/preview"
         android:selectAllOnFocus="true"
-        android:textSize="20dip"/>
+        android:textSize="30dip"/>
 
     <Button
         android:id="@+id/copy"
@@ -59,7 +59,6 @@
         android:width="100dip"
         android:text="Copy"
         android:layout_below="@id/output"
-        android:orientation="vertical"
         />
 
     <Button
@@ -70,6 +69,5 @@
         android:width="100dip"
         android:text="@string/dbs_off"
         android:layout_below="@id/output"
-        android:orientation="vertical"
         />
 </RelativeLayout>
