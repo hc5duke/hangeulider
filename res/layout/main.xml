@@ -58,7 +58,9 @@
         android:layout_marginLeft="10dip"
         android:width="100dip"
         android:text="Copy"
-        android:layout_below="@id/output"/>
+        android:layout_below="@id/output"
+        android:orientation="vertical"
+        />
 
     <Button
         android:id="@+id/mode"
@@ -67,21 +69,7 @@
         android:layout_toRightOf="@id/copy"
         android:width="100dip"
         android:text="@string/dbs_off"
-        android:layout_below="@id/output"/>
-
-    <TextView
-        android:id="@+id/log1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Status: ok"
-        android:layout_marginTop="5dip"
-        android:layout_below="@id/copy"
-        android:textColor="#0a0"/>
-
-	<TextView
-		android:id="@+id/log2"
-		android:layout_below="@id/log1"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:textColor="#888" />
+        android:layout_below="@id/output"
+        android:orientation="vertical"
+        />
 </RelativeLayout>

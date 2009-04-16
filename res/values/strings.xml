@@ -6,4 +6,6 @@
     <string name="app_name">Hangeulize - Korean Virtual Keyboard</string>
 <string name="dbs_off">두벌식: OFF</string>
 <string name="dbs_on">두벌식: ON</string>
+<string name="notification_title">Hangeulize!</string>
+<string name="notification_motto">한글 Virtual Keyboard</string>
 </resources>
