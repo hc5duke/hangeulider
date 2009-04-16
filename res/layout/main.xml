@@ -3,14 +3,14 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-	<TextView android:id="@+id/labelPreview"
+	<TextView android:id="@+id/previewLabel"
 		android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:text="Preview"
         android:layout_width="80dip"/>
 
-	<Button android:id="@+id/preview"
-		android:layout_below="@id/labelPreview"
+	<Button android:id="@+id/previewButton"
+		android:layout_below="@id/previewLabel"
 		android:layout_width="80dip"
 		android:layout_height="85dip"
         android:layout_alignParentRight="true"
@@ -20,54 +20,64 @@
         android:shadowColor="#f00" />
 
     <TextView
-        android:id="@+id/helper"
+        android:id="@+id/helperLabel"
         android:text="@string/type_here1"
-        android:layout_toLeftOf="@id/labelPreview"
+        android:layout_toLeftOf="@id/previewLabel"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
 
     <EditText
-        android:id="@+id/input"
+        android:id="@+id/inputEdit"
         android:layout_height="wrap_content"
         android:background="@android:drawable/editbox_background"
-        android:layout_below="@id/helper"
-        android:layout_toLeftOf="@id/preview"
+        android:layout_below="@id/helperLabel"
+        android:layout_toLeftOf="@id/previewButton"
         android:layout_width="fill_parent"/>
 
     <TextView
-    	android:id="@+id/korean"
+    	android:id="@+id/koreanLabel"
     	android:text="한글 (Korean):"
     	android:layout_width="wrap_content"
     	android:layout_height="wrap_content"
-    	android:layout_below="@id/input"/>
+    	android:layout_below="@id/inputEdit"/>
 
     <EditText
-        android:id="@+id/output"
+        android:id="@+id/outputEdit"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@android:drawable/editbox_background"
-        android:layout_below="@id/korean"
-        android:layout_toLeftOf="@id/preview"
+        android:layout_below="@id/koreanLabel"
+        android:layout_toLeftOf="@id/previewButton"
         android:selectAllOnFocus="true"
         android:textSize="30dip"/>
 
     <Button
-        android:id="@+id/copy"
+        android:id="@+id/copyButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dip"
         android:width="100dip"
         android:text="Copy"
-        android:layout_below="@id/output"
+        android:layout_below="@id/outputEdit"
         />
 
     <Button
-        android:id="@+id/mode"
+        android:id="@+id/modeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/copy"
+        android:layout_toRightOf="@id/copyButton"
         android:width="100dip"
         android:text="@string/dbs_off"
-        android:layout_below="@id/output"
+        android:layout_below="@id/outputEdit"
+        />
+
+    <Button
+        android:id="@+id/helpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/copyButton"
+        android:width="100dip"
+        android:text="@string/dbs_off"
+        android:layout_below="@id/outputEdit"
         />
 </RelativeLayout>

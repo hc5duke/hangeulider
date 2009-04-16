@@ -31,22 +31,22 @@ public class HangeulParser implements TextWatcher {
 
 	public HangeulParser(Hangeulize h) {
 		this.hangeulizer = h;
-		input = (EditText) hangeulizer.findViewById(R.id.input);
-		output = (EditText) hangeulizer.findViewById(R.id.output);
-		helper = (TextView) hangeulizer.findViewById(R.id.helper);
-		preview = (Button) hangeulizer.findViewById(R.id.preview);
+		input = (EditText) hangeulizer.findViewById(R.id.inputEdit);
+		output = (EditText) hangeulizer.findViewById(R.id.outputEdit);
+		helper = (TextView) hangeulizer.findViewById(R.id.helperLabel);
+		preview = (Button) hangeulizer.findViewById(R.id.previewButton);
 		preview.setText("");
 		preview.setOnClickListener(new PreviewButtonListener(this));
 		// preview.setLongClickable(true); // TODO: han ja
 
 		ClipboardManager manager = (ClipboardManager) hangeulizer
 				.getSystemService(android.content.Context.CLIPBOARD_SERVICE);
-		copy = (Button) hangeulizer.findViewById(R.id.copy);
+		copy = (Button) hangeulizer.findViewById(R.id.copyButton);
 		copy.setOnClickListener(new CopyButtonListener(output, manager));
 
 		MyButtonListener buttonListener = new MyButtonListener(hangeulizer,
 				output);
-		mode = (Button) hangeulizer.findViewById(R.id.mode);
+		mode = (Button) hangeulizer.findViewById(R.id.modeButton);
 		mode.setOnClickListener(buttonListener);
 
 		input.addTextChangedListener(this);

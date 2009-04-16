@@ -17,15 +17,16 @@ public final class R {
         public static final int transparent_background=0x7f020003;
     }
     public static final class id {
-        public static final int copy=0x7f060006;
-        public static final int dubeolshik=0x7f060008;
-        public static final int helper=0x7f060002;
-        public static final int input=0x7f060003;
-        public static final int korean=0x7f060004;
-        public static final int labelPreview=0x7f060000;
-        public static final int mode=0x7f060007;
-        public static final int output=0x7f060005;
-        public static final int preview=0x7f060001;
+        public static final int copyButton=0x7f060006;
+        public static final int dubeolshik=0x7f060009;
+        public static final int helpButton=0x7f060008;
+        public static final int helperLabel=0x7f060002;
+        public static final int inputEdit=0x7f060003;
+        public static final int koreanLabel=0x7f060004;
+        public static final int modeButton=0x7f060007;
+        public static final int outputEdit=0x7f060005;
+        public static final int previewButton=0x7f060001;
+        public static final int previewLabel=0x7f060000;
     }
     public static final class layout {
         public static final int main=0x7f030000;

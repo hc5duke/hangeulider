@@ -13,7 +13,7 @@ public class MyButtonListener implements OnClickListener {
 		this.view = tv;
 	}
 	public void onClick(View v) {
-		if (v.getId() == R.id.mode) {
+		if (v.getId() == R.id.modeButton) {
 			hangeulizer.toggleDubeolshikMode();
 		} else {
 			
