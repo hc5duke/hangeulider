@@ -47,7 +47,7 @@ public class Hangeulize extends Activity {
 	@Override
 	protected void onStart() {
 		super.onStart();
-		sendNotification(this);
+		toggleNotification(true);
 		Log.d("status", "start");
 	}
 
@@ -95,19 +95,51 @@ public class Hangeulize extends Activity {
 	@Override
 	public boolean onMenuOpened(int featureId, Menu menu) {
 		Log.d("mode", String.valueOf(getDubeolshikMode()));
+		MenuItem dbsMode = mMenu.findItem(R.id.dubeolshikMenuItem);
+		boolean dMode = dbsMode.isChecked();
+		int iconId = dMode ? android.R.drawable.checkbox_on_background
+				: android.R.drawable.checkbox_off_background;
+		dbsMode.setIcon(iconId);
+		dbsMode.setChecked(dMode);
+
+		MenuItem notification = mMenu.findItem(R.id.notificationMenuItem);
+		boolean nMode = notification.isChecked();
+		iconId = nMode ? android.R.drawable.checkbox_on_background
+				: android.R.drawable.checkbox_off_background;
+		notification.setIcon(iconId);
+		notification.setChecked(nMode);
 		return super.onMenuOpened(featureId, menu);
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		Log.d("menu ", String.valueOf(item.getItemId()));
-		if (item.isChecked()) {
-			item.setChecked(false);
-		} else {
-			item.setChecked(true);
+		int id = item.getItemId();
+		Log.d("menu ", String.valueOf(id));
+		if (id == R.id.dubeolshikMenuItem) {
+			if (item.isChecked()) {
+				item.setChecked(false);
+			} else {
+				item.setChecked(true);
+			}
+			setDubeolshikMode(item.isChecked());
+		} else if (id == R.id.notificationMenuItem) {
+			if (item.isChecked()) {
+				toggleNotification(false);
+			} else {
+				toggleNotification(true);
+			}
 		}
-		setDubeolshikMode(item.isChecked());
+		// cancelNotification
 		return false;
+	}
+
+	public void toggleNotification(boolean toggle) {
+		if (toggle) {
+			sendNotification(this);
+		} else {
+			cancelNotification();
+		}
+
 	}
 
 	public void toggleDubeolshikMode() {
@@ -122,13 +154,6 @@ public class Hangeulize extends Activity {
 		Log.d("mode", String.valueOf(dubeolshik));
 		Hangeulize.inputMode = dubeolshik ? modeDuBeolShik : modeKonglish;
 
-		if (mMenu != null) {
-			MenuItem dbsMode = mMenu.findItem(R.id.dubeolshikMenuItem);
-			int iconId = dubeolshik ? android.R.drawable.checkbox_on_background
-					: android.R.drawable.checkbox_off_background;
-			dbsMode.setIcon(iconId);
-			dbsMode.setChecked(dubeolshik);
-		}
 		parser.setModeText();
 	}
 }
