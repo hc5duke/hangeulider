@@ -1,5 +1,6 @@
 package com.choibean.android.hangeulize;
 
+import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -24,6 +25,7 @@ public class MyButtonListener implements OnClickListener {
 			String ch = "";
 			HangeulParser parser = hangeulizer.parser;
 			EditText input = parser.input;
+			Editable editable = input.getText();
 			Button copy = parser.copy;
 
 			switch (id) {
@@ -91,12 +93,14 @@ public class MyButtonListener implements OnClickListener {
 				ch = "eu";
 				break;
 			case R.id.keySp:
+				input.setText(editable.append(' '));
 				parser.grabText();
 				ch = "";
 				break;
 			case R.id.keyBs:
-				String text = input.getText().toString();
-				input.setText(text.subSequence(0, text.length() - 1));
+				if (editable.length() > 0) {
+					input.setText(editable.subSequence(0, editable.length() - 1));
+				}
 				ch = "";
 				break;
 			}
