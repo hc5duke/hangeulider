@@ -68,7 +68,8 @@
 		android:layout_below="@id/inputEdit"
 		android:layout_width="fill_parent"
 		android:layout_height="50dip"
-		android:gravity="center_vertical|center_horizontal|center" android:paddingTop="5dip">
+		android:paddingTop="10dip"
+		android:gravity="center_vertical|center_horizontal|center" >
 
 		<Button
 			android:id="@+id/keyG"
@@ -182,6 +183,7 @@
 		android:layout_below="@id/LinearLayout02"
 		android:layout_width="fill_parent"
 		android:layout_height="50dip"
+		android:paddingTop="10dip"
 		android:gravity="center_vertical|center_horizontal|center">
 
 		<Button
@@ -247,7 +249,8 @@
 		android:id="@+id/LinearLayout05"
 		android:layout_below="@id/LinearLayout04"
 		android:layout_width="fill_parent"
-		android:layout_height="80dip"
+		android:layout_height="100dip"
+		android:paddingTop="10dip"
 		android:gravity="center_vertical|center_horizontal|center">
 
 		<Button
@@ -255,15 +258,20 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="@string/korean_bs"
+			android:textSize="20dip"
 			android:width="100dip"
-		/>
+			android:height="65dip"
+			android:layout_marginRight="20dip" />
 
 		<Button
 			android:id="@+id/keySp"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="@string/korean_sp"
+			android:textSize="20dip"
 			android:width="100dip"
+			android:height="65dip"
+			android:layout_marginLeft="20dip"
 		/>
 	</LinearLayout>
 </RelativeLayout>

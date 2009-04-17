@@ -116,9 +116,9 @@ public class HangeulParser implements TextWatcher {
 
 	public void grabText() {
 		CharSequence cs = preview.getText();
+		output.setText(output.getText().append(cs));
 		if (input != null)
 			input.setText("");
-		output.setText(output.getText().append(cs));
 		preview.setText("");
 	}
 
@@ -186,9 +186,9 @@ public class HangeulParser implements TextWatcher {
 			}
 		}
 
-		log = new StringBuffer(consonant).append(',').append(vowel).append(',')
-				.append(bachim);
-		Log.d("status", log.toString());
+//		log = new StringBuffer(consonant).append(',').append(vowel).append(',')
+//				.append(bachim);
+//		Log.d("status", log.toString());
 
 		char c = (char) (unicode);
 		Log.d("status", String.valueOf(c));
@@ -408,6 +408,6 @@ public class HangeulParser implements TextWatcher {
 
 		dubs.put("b", "yu");
 		dubs.put("n", "u");
-		dubs.put("m", "i");
+		dubs.put("m", "eu");
 	}
 }
