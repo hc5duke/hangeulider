@@ -23,15 +23,15 @@
         android:id="@+id/inputEdit"
         android:layout_height="wrap_content"
         android:background="@android:drawable/editbox_background"
-        android:layout_toLeftOf="@id/previewButton"
-        android:layout_width="fill_parent"/>
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/previewButton"
+       	android:layout_width="80dip" android:textSize="12dip" android:focusable="false"/>
 
     <TextView
     	android:id="@+id/koreanLabel"
-    	android:text="한글 (Korean):"
+    	android:text="@string/korean_label"
     	android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"
-        android:layout_below="@id/inputEdit" />
+    	android:layout_height="wrap_content" />
 
     <EditText
         android:id="@+id/outputEdit"
@@ -41,7 +41,7 @@
         android:layout_below="@id/koreanLabel"
         android:layout_toLeftOf="@id/previewButton"
         android:selectAllOnFocus="true"
-        android:textSize="30dip"/>
+        android:textSize="30dip" android:singleLine="true"/>
 
     <Button
         android:id="@+id/copyButton"
@@ -63,54 +63,60 @@
          android:width="100dip"
  	/>
 
-
 	<LinearLayout
 		android:id="@+id/LinearLayout01"
-		android:layout_below="@id/helpButton"
+		android:layout_below="@id/inputEdit"
 		android:layout_width="fill_parent"
-		android:layout_height="70dip"
-		android:gravity="center_vertical|center_horizontal|center">
+		android:layout_height="50dip"
+		android:gravity="center_vertical|center_horizontal|center" android:paddingTop="5dip">
 
 		<Button
 			android:id="@+id/keyG"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="ㄱ"
+			android:text="@string/korean_ga"
 		/>
 	
 		<Button
 			android:id="@+id/keyN"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="ㄴ"
+			android:text="@string/korean_na"
 		/>
 	
 		<Button
 			android:id="@+id/keyD"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="ㄷ"
+			android:text="@string/korean_da"
 		/>
 
 		<Button
 			android:id="@+id/keyR"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="ㄹ"
+			android:text="@string/korean_ra"
 		/>
 
 		<Button
 			android:id="@+id/keyM"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="ㅁ"
+			android:text="@string/korean_ma"
 		/>
 
 		<Button
 			android:id="@+id/keyB"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="ㅂ"
+			android:text="@string/korean_ba"
+		/>
+
+		<Button
+			android:id="@+id/keyS"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/korean_sa"
 		/>
 	</LinearLayout>
 	
@@ -118,49 +124,56 @@
 		android:id="@+id/LinearLayout02"
 		android:layout_below="@id/LinearLayout01"
 		android:layout_width="fill_parent"
-		android:layout_height="70dip"
+		android:layout_height="50dip"
 		android:gravity="center_vertical|center_horizontal|center">
-
-		<Button
-			android:id="@+id/keyS"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="ㅅ"
-		/>
 
 		<Button
 			android:id="@+id/keyNg"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="ㅇ"
+			android:text="@string/korean_nga"
 		/>
 
 		<Button
 			android:id="@+id/keyJ"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="ㅈ"
+			android:text="@string/korean_ja"
 		/>
 
 		<Button
 			android:id="@+id/keyCh"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="ㅊ"
+			android:text="@string/korean_cha"
 		/>
 
 		<Button
 			android:id="@+id/keyK"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="ㅋ"
+			android:text="@string/korean_ka"
 		/>
 
 		<Button
 			android:id="@+id/keyT"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="ㅌ"
+			android:text="@string/korean_ta"
+		/>
+
+		<Button
+			android:id="@+id/keyP"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/korean_pa"
+		/>
+
+		<Button
+			android:id="@+id/keyH"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/korean_ha"
 		/>
 	</LinearLayout>
 	
@@ -168,22 +181,89 @@
 		android:id="@+id/LinearLayout03"
 		android:layout_below="@id/LinearLayout02"
 		android:layout_width="fill_parent"
-		android:layout_height="70dip"
+		android:layout_height="50dip"
 		android:gravity="center_vertical|center_horizontal|center">
 
 		<Button
-			android:id="@+id/keyP"
+			android:id="@+id/keyA"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="ㅍ"
+			android:text="@string/korean_a"
 		/>
 
 		<Button
-			android:id="@+id/keyH"
+			android:id="@+id/keyYa"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="ㅎ"
+			android:text="@string/korean_ya"
 		/>
 
+		<Button
+			android:id="@+id/keyEo"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/korean_eo"
+		/>
+
+		<Button
+			android:id="@+id/keyYeo"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/korean_yeo"
+		/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:id="@+id/LinearLayout04"
+		android:layout_below="@id/LinearLayout03"
+		android:layout_width="fill_parent"
+		android:layout_height="50dip"
+		android:gravity="center_vertical|center_horizontal|center">
+
+		<Button
+			android:id="@+id/keyO"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/korean_o"
+		/>
+
+		<Button
+			android:id="@+id/keyU"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/korean_u"
+		/>
+
+		<Button
+			android:id="@+id/keyEu"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/korean_eu"
+		/>
+	</LinearLayout>
+
+	<LinearLayout
+		android:id="@+id/LinearLayout05"
+		android:layout_below="@id/LinearLayout04"
+		android:layout_width="fill_parent"
+		android:layout_height="80dip"
+		android:gravity="center_vertical|center_horizontal|center">
+
+		<Button
+			android:id="@+id/keyBs"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/korean_bs"
+			android:width="100dip"
+		/>
+
+		<Button
+			android:id="@+id/keySp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/korean_sp"
+			android:width="100dip"
+		/>
 	</LinearLayout>
 </RelativeLayout>

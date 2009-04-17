@@ -36,7 +36,7 @@
 
     <TextView
     	android:id="@+id/koreanLabel"
-    	android:text="한글 (Korean):"
+    	android:text="@string/korean_label"
     	android:layout_width="wrap_content"
     	android:layout_height="wrap_content"
     	android:layout_below="@id/inputEdit"/>

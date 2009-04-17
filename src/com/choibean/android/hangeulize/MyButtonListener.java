@@ -22,6 +22,10 @@ public class MyButtonListener implements OnClickListener {
 			int id = v.getId();
 			Log.d("click", "<id> = " + id);
 			String ch = "";
+			HangeulParser parser = hangeulizer.parser;
+			EditText input = parser.input;
+			Button copy = parser.copy;
+
 			switch (id) {
 			case R.id.keyG:
 				ch = "g";
@@ -65,12 +69,41 @@ public class MyButtonListener implements OnClickListener {
 			case R.id.keyH:
 				ch = "h";
 				break;
+			case R.id.keyA:
+				ch = "a";
+				break;
+			case R.id.keyYa:
+				ch = "ya";
+				break;
+			case R.id.keyEo:
+				ch = "eo";
+				break;
+			case R.id.keyYeo:
+				ch = "yeo";
+				break;
+			case R.id.keyO:
+				ch = "o";
+				break;
+			case R.id.keyU:
+				ch = "u";
+				break;
+			case R.id.keyEu:
+				ch = "eu";
+				break;
+			case R.id.keySp:
+				parser.grabText();
+				ch = "";
+				break;
+			case R.id.keyBs:
+				String text = input.getText().toString();
+				input.setText(text.subSequence(0, text.length() - 1));
+				ch = "";
+				break;
 			}
-			Log.d("press",ch);
-			EditText input = hangeulizer.parser.input;
-			Button copy = hangeulizer.parser.copy;
-			input.setText(input.getText().append(ch));
-			copy.requestFocus();
+			Log.d("press", ch);
+			if (!ch.equals(""))
+				input.setText(input.getText().append(ch));
+			// copy.requestFocus();
 		}
 	}
 }

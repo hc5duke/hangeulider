@@ -56,7 +56,27 @@ public class HangeulParser implements TextWatcher {
 		} else { // tall mode
 			LinearLayout layout = (LinearLayout) h
 					.findViewById(R.id.LinearLayout01);
-			for (int i=0; i < layout.getChildCount(); i++) {
+			for (int i = 0; i < layout.getChildCount(); i++) {
+				Button button = (Button) layout.getChildAt(i);
+				button.setOnClickListener(buttonListener);
+			}
+			layout = (LinearLayout) h.findViewById(R.id.LinearLayout02);
+			for (int i = 0; i < layout.getChildCount(); i++) {
+				Button button = (Button) layout.getChildAt(i);
+				button.setOnClickListener(buttonListener);
+			}
+			layout = (LinearLayout) h.findViewById(R.id.LinearLayout03);
+			for (int i = 0; i < layout.getChildCount(); i++) {
+				Button button = (Button) layout.getChildAt(i);
+				button.setOnClickListener(buttonListener);
+			}
+			layout = (LinearLayout) h.findViewById(R.id.LinearLayout04);
+			for (int i = 0; i < layout.getChildCount(); i++) {
+				Button button = (Button) layout.getChildAt(i);
+				button.setOnClickListener(buttonListener);
+			}
+			layout = (LinearLayout) h.findViewById(R.id.LinearLayout05);
+			for (int i = 0; i < layout.getChildCount(); i++) {
 				Button button = (Button) layout.getChildAt(i);
 				button.setOnClickListener(buttonListener);
 			}
@@ -71,27 +91,27 @@ public class HangeulParser implements TextWatcher {
 	}
 
 	public void onTextChanged(CharSequence s, int start, int before, int count) {
-//		try {
-			String text = s.toString();
-			boolean finalize = false;
-			if (text.indexOf(' ') != -1 || text.indexOf('\t') != -1
-					|| text.indexOf('\n') != -1)
-				finalize = true;
-			if (text.length() > 0 && text.trim().equals("")) {
-				Log.d("text", "should enter space here");
-				if (input != null)
-					input.setText("");
-				output.setText(output.getText().append(' '));
+		// try {
+		String text = s.toString();
+		boolean finalize = false;
+		if (text.indexOf(' ') != -1 || text.indexOf('\t') != -1
+				|| text.indexOf('\n') != -1)
+			finalize = true;
+		if (text.length() > 0 && text.trim().equals("")) {
+			Log.d("text", "should enter space here");
+			if (input != null)
+				input.setText("");
+			output.setText(output.getText().append(' '));
+		} else {
+			if (hangeulizer.getDubeolshikMode()) {
+				parseDuBeolShik(text, finalize);
 			} else {
-				if (hangeulizer.getDubeolshikMode()) {
-					parseDuBeolShik(text, finalize);
-				} else {
-					parseKonglish(text, finalize);
-				}
+				parseKonglish(text, finalize);
 			}
-//		} catch (Exception e) {
-//			Log.e("error", e.toString());
-//		}
+		}
+		// } catch (Exception e) {
+		// Log.e("error", e.toString());
+		// }
 	}
 
 	public void grabText() {
