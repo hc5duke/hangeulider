@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+	<TextView android:id="@+id/previewLabel"
+		android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="Preview"
+        android:layout_width="80dip"/>
+
+	<Button android:id="@+id/previewButton"
+		android:layout_below="@id/previewLabel"
+		android:layout_width="80dip"
+		android:layout_height="85dip"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center_horizontal"
+        android:text="_"
+        android:textSize="60dip"
+        android:shadowColor="#f00" />
+
+    <EditText
+        android:id="@+id/inputEdit"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/editbox_background"
+        android:layout_toLeftOf="@id/previewButton"
+        android:layout_width="fill_parent"/>
+
+    <TextView
+    	android:id="@+id/koreanLabel"
+    	android:text="한글 (Korean):"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+        android:layout_below="@id/inputEdit" />
+
+    <EditText
+        android:id="@+id/outputEdit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/editbox_background"
+        android:layout_below="@id/koreanLabel"
+        android:layout_toLeftOf="@id/previewButton"
+        android:selectAllOnFocus="true"
+        android:textSize="30dip"/>
+
+    <Button
+        android:id="@+id/copyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:width="100dip"
+        android:text="Copy"
+        android:layout_below="@id/outputEdit"
+    />
+
+    <Button
+        android:id="@+id/helpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/copyButton"
+        android:text="@string/help"
+        android:layout_below="@id/outputEdit"
+         android:width="100dip"
+ 	/>
+
+
+	<LinearLayout
+		android:id="@+id/LinearLayout01"
+		android:layout_below="@id/helpButton"
+		android:layout_width="fill_parent"
+		android:layout_height="70dip"
+		android:gravity="center_vertical|center_horizontal|center">
+
+		<Button
+			android:id="@+id/keyG"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="ㄱ"
+		/>
+	
+		<Button
+			android:id="@+id/keyN"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="ㄴ"
+		/>
+	
+		<Button
+			android:id="@+id/keyD"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="ㄷ"
+		/>
+
+		<Button
+			android:id="@+id/keyR"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="ㄹ"
+		/>
+
+		<Button
+			android:id="@+id/keyM"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="ㅁ"
+		/>
+
+		<Button
+			android:id="@+id/keyB"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="ㅂ"
+		/>
+	</LinearLayout>
+	
+	<LinearLayout
+		android:id="@+id/LinearLayout02"
+		android:layout_below="@id/LinearLayout01"
+		android:layout_width="fill_parent"
+		android:layout_height="70dip"
+		android:gravity="center_vertical|center_horizontal|center">
+
+		<Button
+			android:id="@+id/keyS"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="ㅅ"
+		/>
+
+		<Button
+			android:id="@+id/keyNg"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="ㅇ"
+		/>
+
+		<Button
+			android:id="@+id/keyJ"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="ㅈ"
+		/>
+
+		<Button
+			android:id="@+id/keyCh"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="ㅊ"
+		/>
+
+		<Button
+			android:id="@+id/keyK"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="ㅋ"
+		/>
+
+		<Button
+			android:id="@+id/keyT"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="ㅌ"
+		/>
+	</LinearLayout>
+	
+	<LinearLayout
+		android:id="@+id/LinearLayout03"
+		android:layout_below="@id/LinearLayout02"
+		android:layout_width="fill_parent"
+		android:layout_height="70dip"
+		android:gravity="center_vertical|center_horizontal|center">
+
+		<Button
+			android:id="@+id/keyP"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="ㅍ"
+		/>
+
+		<Button
+			android:id="@+id/keyH"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="ㅎ"
+		/>
+
+	</LinearLayout>
+</RelativeLayout>

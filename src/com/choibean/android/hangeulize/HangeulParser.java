@@ -10,6 +10,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class HangeulParser implements TextWatcher {
@@ -29,28 +30,37 @@ public class HangeulParser implements TextWatcher {
 	private static HashMap<String, Integer> jaeums;
 	private static HashMap<String, String> dubs;
 
+	private static String text;
+
 	public HangeulParser(Hangeulize h) {
 		this.hangeulizer = h;
-		input = (EditText) hangeulizer.findViewById(R.id.inputEdit);
-		output = (EditText) hangeulizer.findViewById(R.id.outputEdit);
-		helper = (TextView) hangeulizer.findViewById(R.id.helperLabel);
-		preview = (Button) hangeulizer.findViewById(R.id.previewButton);
+		output = (EditText) h.findViewById(R.id.outputEdit);
+		helper = (TextView) h.findViewById(R.id.helperLabel);
+		preview = (Button) h.findViewById(R.id.previewButton);
 		preview.setText("");
 		preview.setOnClickListener(new PreviewButtonListener(this));
 		// preview.setLongClickable(true); // TODO: han ja
 
-		ClipboardManager manager = (ClipboardManager) hangeulizer
+		ClipboardManager manager = (ClipboardManager) h
 				.getSystemService(android.content.Context.CLIPBOARD_SERVICE);
-		copy = (Button) hangeulizer.findViewById(R.id.copyButton);
+		copy = (Button) h.findViewById(R.id.copyButton);
 		copy.setOnClickListener(new CopyButtonListener(output, manager));
-
-		MyButtonListener buttonListener = new MyButtonListener(hangeulizer,
-				output);
-		mode = (Button) hangeulizer.findViewById(R.id.modeButton);
-		mode.setOnClickListener(buttonListener);
-
+		input = (EditText) h.findViewById(R.id.inputEdit);
 		input.addTextChangedListener(this);
 		input.requestFocus();
+
+		MyButtonListener buttonListener = new MyButtonListener(h, output);
+		if (h.isWide()) {
+			mode = (Button) h.findViewById(R.id.modeButton);
+			mode.setOnClickListener(buttonListener);
+		} else { // tall mode
+			LinearLayout layout = (LinearLayout) h
+					.findViewById(R.id.LinearLayout01);
+			for (int i=0; i < layout.getChildCount(); i++) {
+				Button button = (Button) layout.getChildAt(i);
+				button.setOnClickListener(buttonListener);
+			}
+		}
 		setupObjects();
 	}
 
@@ -61,7 +71,7 @@ public class HangeulParser implements TextWatcher {
 	}
 
 	public void onTextChanged(CharSequence s, int start, int before, int count) {
-		try {
+//		try {
 			String text = s.toString();
 			boolean finalize = false;
 			if (text.indexOf(' ') != -1 || text.indexOf('\t') != -1
@@ -69,7 +79,8 @@ public class HangeulParser implements TextWatcher {
 				finalize = true;
 			if (text.length() > 0 && text.trim().equals("")) {
 				Log.d("text", "should enter space here");
-				input.setText("");
+				if (input != null)
+					input.setText("");
 				output.setText(output.getText().append(' '));
 			} else {
 				if (hangeulizer.getDubeolshikMode()) {
@@ -78,14 +89,15 @@ public class HangeulParser implements TextWatcher {
 					parseKonglish(text, finalize);
 				}
 			}
-		} catch (Exception e) {
-			Log.e("error", e.toString());
-		}
+//		} catch (Exception e) {
+//			Log.e("error", e.toString());
+//		}
 	}
 
 	public void grabText() {
 		CharSequence cs = preview.getText();
-		input.setText("");
+		if (input != null)
+			input.setText("");
 		output.setText(output.getText().append(cs));
 		preview.setText("");
 	}
@@ -125,8 +137,10 @@ public class HangeulParser implements TextWatcher {
 			return;
 		}
 
-		helper.setText(R.string.press_space);
-		helper.setTextColor(0xd0ffff00);
+		if (helper != null) {
+			helper.setText(R.string.press_space);
+			helper.setTextColor(0xd0ffff00);
+		}
 		Integer consonant, vowel, bachim = null;
 		vowel = vowels.get(v);
 		int unicode = 44032;
@@ -152,8 +166,8 @@ public class HangeulParser implements TextWatcher {
 			}
 		}
 
-		log = new StringBuffer(consonant).append(',')
-				.append(vowel).append(',').append(bachim);
+		log = new StringBuffer(consonant).append(',').append(vowel).append(',')
+				.append(bachim);
 		Log.d("status", log.toString());
 
 		char c = (char) (unicode);

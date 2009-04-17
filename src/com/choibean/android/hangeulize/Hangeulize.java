@@ -1,5 +1,8 @@
 package com.choibean.android.hangeulize;
 
+import java.util.Iterator;
+import java.util.Set;
+
 import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -9,6 +12,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -27,22 +31,27 @@ public class Hangeulize extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
+		setContentView(isWide() ? R.layout.wide : R.layout.tall);
 		parser = new HangeulParser(this);
 		setDubeolshikMode(false);
 
-		// if (savedInstanceState == null) {
-		// Log.d("Hangeul", "onCreate(null)");
-		// } else {
-		// Log.d("Hangeul", "onCreate(**something**)");
-		// }
+		if (savedInstanceState == null) {
+			Log.d("State", "onCreate(null)");
+		} else {
+			Log.d("State", "onCreate(**something**)");
+		}
 	}
 
-	// @Override
-	// protected void onSaveInstanceState(Bundle outState) {
-	// super.onSaveInstanceState(outState);
-	// Log.d("Hangeul", "onSIS: got to Child");
-	// }
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		Log.d("State", "onSIS: got to Child");
+		Set<String> set = outState.keySet();
+		Iterator<String> iterator = set.iterator();
+		while (iterator.hasNext()) {
+			Log.d("State", outState.get(iterator.next()).getClass().getName());
+		}
+	}
 
 	@Override
 	protected void onStart() {
@@ -155,5 +164,10 @@ public class Hangeulize extends Activity {
 		Hangeulize.inputMode = dubeolshik ? modeDuBeolShik : modeKonglish;
 
 		parser.setModeText();
+	}
+
+	public boolean isWide() {
+		Display display = getWindowManager().getDefaultDisplay();
+		return display.getWidth() > display.getHeight();
 	}
 }
