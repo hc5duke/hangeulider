@@ -25,6 +25,7 @@ public class MyButtonListener implements OnClickListener {
 			String ch = "";
 			HangeulParser parser = hangeulizer.parser;
 			EditText input = parser.input;
+			EditText output = parser.output;
 			Editable editable = input.getText();
 			Button copy = parser.copy;
 
@@ -99,6 +100,11 @@ public class MyButtonListener implements OnClickListener {
 			case R.id.keyBs:
 				if (editable.length() > 0) {
 					input.setText(editable.subSequence(0, editable.length() - 1));
+				} else {
+					int len = output.length();
+					if (len > 0) {
+						output.setText(output.getText().subSequence(0, len - 1));
+					}
 				}
 				ch = "";
 				break;
