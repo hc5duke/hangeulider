@@ -9,47 +9,62 @@
 			android:layout_width="fill_parent" android:layout_alignParentLeft="true"
 			android:layout_height="wrap_content" android:gravity="top|center">
 			<Button android:id="@+id/copyButton" android:layout_width="wrap_content"
-				android:layout_height="wrap_content" android:width="100dip"
-				android:text="@string/copy" />
-			<Button android:id="@+id/helpButton" android:layout_width="wrap_content"
-				android:layout_height="wrap_content" android:width="100dip"
-				android:text="@string/help" />
+				android:layout_height="wrap_content" android:width="140dip"
+				android:text="@string/copy" android:layout_marginRight="20px" />
 			<Button android:id="@+id/modeButton" android:layout_width="wrap_content"
-				android:layout_height="wrap_content" android:width="100dip"
+				android:layout_height="wrap_content" android:width="140dip"
 				android:text="@string/dbs_off" />
+			<Button android:id="@+id/helpButton" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:width="140dip"
+				android:text="@string/help" android:layout_marginLeft="20px" />
 		</LinearLayout>
-		<TextView android:id="@+id/helperLabel" android:text="@string/type_here1"
-			android:layout_width="fill_parent" android:layout_height="wrap_content" />
-		<EditText android:id="@+id/inputEdit" android:layout_height="wrap_content"
-			android:background="@android:drawable/editbox_background"
-			android:layout_width="fill_parent" />
+		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_width="fill_parent" android:layout_alignParentLeft="true"
+			android:layout_height="wrap_content" android:gravity="top|center">
+		
+		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_width="370dip" android:orientation="vertical"
+			android:layout_height="wrap_content" android:gravity="top">
+			<TextView android:id="@+id/helperLabel" android:text="@string/type_here1"
+				android:layout_width="fill_parent" android:layout_height="wrap_content" />
+			<EditText android:id="@+id/inputEdit" android:layout_height="wrap_content"
+				android:background="@android:drawable/editbox_background"
+				android:layout_width="fill_parent" />
 
-		<LinearLayout android:layout_width="fill_parent"
-			android:layout_height="wrap_content" android:addStatesFromChildren="true"
-			android:gravity="center_vertical" android:paddingRight="0dip"
-			android:background="@android:drawable/edit_text">
-			<TextView android:id="@+id/koreanLabel" android:text="@string/korean_label"
-				android:layout_width="wrap_content" android:layout_height="wrap_content"
-				android:textColor="?android:attr/textColorSecondary"
-				android:textAppearance="?android:attr/textAppearanceLargeInverse" />
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:addStatesFromChildren="true"
+				android:gravity="center_vertical" android:paddingRight="0dip"
+				android:background="@android:drawable/edit_text">
+				<TextView android:id="@+id/koreanLabel" android:text="@string/korean_label"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:textColor="?android:attr/textColorSecondary"
+					android:textAppearance="?android:attr/textAppearanceLargeInverse" />
 
-			<EditText android:id="@+id/outputEdit" android:layout_width="wrap_content"
-				android:layout_weight="1" android:layout_height="wrap_content"
-				android:layout_below="@id/koreanLabel" android:layout_toLeftOf="@id/previewButton"
-				android:selectAllOnFocus="true" android:textSize="30dip"
-				android:singleLine="true" android:background="@null" />
+				<EditText android:id="@+id/outputEdit"
+					android:layout_width="wrap_content" android:layout_weight="1"
+					android:layout_height="wrap_content" android:layout_below="@id/koreanLabel"
+					android:layout_toLeftOf="@id/previewButton"
+					android:selectAllOnFocus="true" android:textSize="30dip"
+					android:singleLine="true" android:background="@null" />
+				<ImageButton style="@android:style/Widget.Button.Inset"
+					android:id="@+id/outputClearButton" android:src="@android:drawable/ic_delete"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:layout_marginTop="2dip" android:layout_marginRight="2dip"
+					android:layout_marginBottom="2dip" android:padding="10dip" />
+			</LinearLayout>
 		</LinearLayout>
-	</LinearLayout>
-	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_alignParentRight="true" android:layout_width="wrap_content"
 		android:layout_height="wrap_content" android:orientation="vertical">
 		<TextView android:id="@+id/previewLabel"
 			android:layout_height="wrap_content" android:layout_alignParentRight="true"
 			android:text="Preview" android:layout_width="80dip" />
 		<Button android:id="@+id/previewButton" android:layout_below="@id/previewLabel"
-			android:layout_width="120dip" android:layout_height="130dip"
+			android:layout_width="100dip" android:layout_height="110dip"
 			android:layout_alignParentRight="true" android:layout_gravity="center_horizontal"
-			android:text="_" android:textSize="90dip" />
+			android:text="_" android:textSize="80dip" />
 	</LinearLayout>
-
+	</LinearLayout>
+		
+	</LinearLayout>
 </LinearLayout>

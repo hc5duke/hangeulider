@@ -25,6 +25,8 @@ public class MyButtonListener implements OnClickListener {
 			mHangeulize.toggleDubeolshikMode();
 		} else if (id == R.id.previewButton) {
 			parser.grabText();
+		} else if (id == R.id.outputClearButton) {
+			((EditText) mHangeulize.findViewById(R.id.outputEdit)).setText("");
 		} else if (id == R.id.helpButton) {
 			// CharSequence message = mHangeulize.getText(R.string.app_name);
 			// AlertDialog dialog = new AlertDialog(mHangeulize);

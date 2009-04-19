@@ -17,8 +17,10 @@ import android.view.Display;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -80,7 +82,7 @@ public class Hangeulize extends Activity {
 
 	@Override
 	protected void onResume() {
-        super.onResume();
+		super.onResume();
 
 		SharedPreferences prefs = getPreferences(0);
 		String restoredText = prefs.getString("text", null);

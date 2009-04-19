@@ -50,6 +50,8 @@ public class HangeulParser implements TextWatcher {
 		if (hangeulize.isWide()) {
 			mode = (Button) hangeulize.findViewById(R.id.modeButton);
 			mode.setOnClickListener(buttonListener);
+			hangeulize.findViewById(R.id.outputClearButton).setOnClickListener(
+					buttonListener);
 		} else { // tall mode
 			LinearLayout layout = (LinearLayout) hangeulize
 					.findViewById(R.id.LinearLayout01);
