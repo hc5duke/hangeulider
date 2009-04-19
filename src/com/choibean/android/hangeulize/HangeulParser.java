@@ -167,7 +167,7 @@ public class HangeulParser implements TextWatcher {
 		if (vowel == null) {
 			unicode = 12593;
 			consonant = jaeums.get(parts[0]);
-			if (consonant == null) {
+			if (consonant == null && parts[0].length() > 1) {
 				consonant = jaeums.get(parts[0].charAt(parts[0].length() - 1));
 			}
 			if (consonant != null) {
@@ -389,6 +389,7 @@ public class HangeulParser implements TextWatcher {
 		dubs.put("o", "ae");
 		dubs.put("O", "yae");
 		dubs.put("p", "e");
+		dubs.put("P", "ye");
 
 		dubs.put("a", "m");
 		dubs.put("s", "n");

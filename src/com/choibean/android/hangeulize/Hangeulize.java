@@ -104,6 +104,10 @@ public class Hangeulize extends Activity {
 	@Override
 	public boolean onMenuOpened(int featureId, Menu menu) {
 		Log.d("mode", String.valueOf(getDubeolshikMode()));
+		mMenu = menu;
+		if (mMenu == null) {
+			return false;
+		}
 		MenuItem dbsMode = mMenu.findItem(R.id.dubeolshikMenuItem);
 		boolean dMode = dbsMode.isChecked();
 		int iconId = dMode ? android.R.drawable.checkbox_on_background
@@ -117,6 +121,7 @@ public class Hangeulize extends Activity {
 				: android.R.drawable.checkbox_off_background;
 		notification.setIcon(iconId);
 		notification.setChecked(nMode);
+
 		return super.onMenuOpened(featureId, menu);
 	}
 
