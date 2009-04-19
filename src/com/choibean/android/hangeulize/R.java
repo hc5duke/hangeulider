@@ -65,6 +65,7 @@ public final class R {
     }
     public static final class string {
         public static final int app_name=0x7f040003;
+        public static final int copied_to_clipboard=0x7f040021;
         public static final int dbs_off=0x7f040004;
         public static final int dbs_on=0x7f040005;
         public static final int help=0x7f040008;

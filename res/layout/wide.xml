@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:gravity="bottom"
     android:background="#80000000" >
 
 	<TextView android:id="@+id/previewLabel"
@@ -12,12 +13,12 @@
 
 	<Button android:id="@+id/previewButton"
 		android:layout_below="@id/previewLabel"
-		android:layout_width="80dip"
-		android:layout_height="85dip"
+		android:layout_width="120dip"
+		android:layout_height="130dip"
         android:layout_alignParentRight="true"
         android:layout_gravity="center_horizontal"
         android:text="_"
-        android:textSize="60dip"
+        android:textSize="90dip"
  />
 
     <TextView

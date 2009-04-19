@@ -1,6 +1,5 @@
 package com.choibean.android.hangeulize;
 
-import android.content.Context;
 import android.text.ClipboardManager;
 import android.text.Editable;
 import android.util.Log;
@@ -31,8 +30,10 @@ public class MyButtonListener implements OnClickListener {
 					.getSystemService(android.content.Context.CLIPBOARD_SERVICE);
 			clipboard.setText(this.view.getText());
 			StringBuffer message = new StringBuffer().append('[').append(
-					this.view.getText()).append("] copied to clipboard");
-			Toast.makeText(Hangeulize.getInstance(), message, Toast.LENGTH_SHORT).show();
+					this.view.getText()).append(']').append(' ').append(
+					mHangeulize.getString(R.string.copied_to_clipboard));
+			Toast.makeText(Hangeulize.getInstance(), message,
+					Toast.LENGTH_SHORT).show();
 		} else {
 			String ch = "";
 			EditText input = parser.input;
