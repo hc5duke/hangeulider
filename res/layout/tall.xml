@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:background="#80000000"
+    >
 
 	<TextView android:id="@+id/previewLabel"
 		android:layout_height="wrap_content"
@@ -76,8 +78,7 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:textSize="24dip"
-			android:text="@string/korean_ga"
-		/>
+			android:text="@string/korean_ga"/>
 	
 		<Button
 			android:id="@+id/keyN"

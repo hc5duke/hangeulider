@@ -40,10 +40,11 @@ public class Hangeulize extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		mInstance = this;
-        Window window = getWindow();
-        window.setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,
-                WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+		Window window = getWindow();
+		window.setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,
+				WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
 		setContentView(isWide() ? R.layout.wide : R.layout.tall);
+
 		if (parser != null) {
 			parser = null;
 			System.gc();

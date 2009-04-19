@@ -16,52 +16,52 @@ public final class R {
         public static final int taegeuk=0x7f020002;
     }
     public static final class id {
-        public static final int LinearLayout01=0x7f060007;
-        public static final int LinearLayout02=0x7f06000f;
-        public static final int LinearLayout03=0x7f060017;
-        public static final int LinearLayout04=0x7f06001c;
-        public static final int LinearLayout05=0x7f060020;
-        public static final int copyButton=0x7f060005;
-        public static final int dubeolshikMenuItem=0x7f060025;
-        public static final int helpButton=0x7f060006;
-        public static final int helperLabel=0x7f060023;
-        public static final int inputEdit=0x7f060002;
-        public static final int keyA=0x7f060018;
-        public static final int keyB=0x7f06000d;
-        public static final int keyBs=0x7f060021;
-        public static final int keyCh=0x7f060012;
-        public static final int keyD=0x7f06000a;
-        public static final int keyEo=0x7f06001a;
-        public static final int keyEu=0x7f06001f;
-        public static final int keyG=0x7f060008;
-        public static final int keyH=0x7f060016;
-        public static final int keyJ=0x7f060011;
-        public static final int keyK=0x7f060013;
-        public static final int keyM=0x7f06000c;
-        public static final int keyN=0x7f060009;
-        public static final int keyNg=0x7f060010;
-        public static final int keyO=0x7f06001d;
-        public static final int keyP=0x7f060015;
-        public static final int keyR=0x7f06000b;
-        public static final int keyS=0x7f06000e;
-        public static final int keySp=0x7f060022;
-        public static final int keyT=0x7f060014;
-        public static final int keyU=0x7f06001e;
-        public static final int keyYa=0x7f060019;
-        public static final int keyYeo=0x7f06001b;
-        public static final int koreanLabel=0x7f060003;
-        public static final int modeButton=0x7f060024;
-        public static final int notificationMenuItem=0x7f060026;
-        public static final int outputEdit=0x7f060004;
-        public static final int previewButton=0x7f060001;
-        public static final int previewLabel=0x7f060000;
+        public static final int LinearLayout01=0x7f070007;
+        public static final int LinearLayout02=0x7f07000f;
+        public static final int LinearLayout03=0x7f070017;
+        public static final int LinearLayout04=0x7f07001c;
+        public static final int LinearLayout05=0x7f070020;
+        public static final int copyButton=0x7f070005;
+        public static final int dubeolshikMenuItem=0x7f070025;
+        public static final int helpButton=0x7f070006;
+        public static final int helperLabel=0x7f070023;
+        public static final int inputEdit=0x7f070002;
+        public static final int keyA=0x7f070018;
+        public static final int keyB=0x7f07000d;
+        public static final int keyBs=0x7f070021;
+        public static final int keyCh=0x7f070012;
+        public static final int keyD=0x7f07000a;
+        public static final int keyEo=0x7f07001a;
+        public static final int keyEu=0x7f07001f;
+        public static final int keyG=0x7f070008;
+        public static final int keyH=0x7f070016;
+        public static final int keyJ=0x7f070011;
+        public static final int keyK=0x7f070013;
+        public static final int keyM=0x7f07000c;
+        public static final int keyN=0x7f070009;
+        public static final int keyNg=0x7f070010;
+        public static final int keyO=0x7f07001d;
+        public static final int keyP=0x7f070015;
+        public static final int keyR=0x7f07000b;
+        public static final int keyS=0x7f07000e;
+        public static final int keySp=0x7f070022;
+        public static final int keyT=0x7f070014;
+        public static final int keyU=0x7f07001e;
+        public static final int keyYa=0x7f070019;
+        public static final int keyYeo=0x7f07001b;
+        public static final int koreanLabel=0x7f070003;
+        public static final int modeButton=0x7f070024;
+        public static final int notificationMenuItem=0x7f070026;
+        public static final int outputEdit=0x7f070004;
+        public static final int previewButton=0x7f070001;
+        public static final int previewLabel=0x7f070000;
     }
     public static final class layout {
         public static final int tall=0x7f030000;
         public static final int wide=0x7f030001;
     }
     public static final class menu {
-        public static final int main_menu=0x7f050000;
+        public static final int main_menu=0x7f060000;
     }
     public static final class string {
         public static final int app_name=0x7f040003;
@@ -97,5 +97,9 @@ public final class R {
         public static final int press_space=0x7f040002;
         public static final int type_here1=0x7f040000;
         public static final int type_here2=0x7f040001;
+    }
+    public static final class style {
+        public static final int Theme=0x7f050000;
+        public static final int Theme_Translucent=0x7f050001;
     }
 }
