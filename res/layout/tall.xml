@@ -67,7 +67,7 @@
 		android:id="@+id/LinearLayout01"
 		android:layout_below="@id/inputEdit"
 		android:layout_width="fill_parent"
-		android:layout_height="50dip"
+		android:layout_height="wrap_content"
 		android:paddingTop="10dip"
 		android:gravity="center_vertical|center_horizontal|center" >
 
@@ -75,6 +75,7 @@
 			android:id="@+id/keyG"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:textSize="24dip"
 			android:text="@string/korean_ga"
 		/>
 	
@@ -82,6 +83,7 @@
 			android:id="@+id/keyN"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:textSize="24dip"
 			android:text="@string/korean_na"
 		/>
 	
@@ -89,13 +91,14 @@
 			android:id="@+id/keyD"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="@string/korean_da"
-		/>
+			android:textSize="24dip"
+			android:text="@string/korean_da"/>
 
 		<Button
 			android:id="@+id/keyR"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:textSize="24dip"
 			android:text="@string/korean_ra"
 		/>
 
@@ -103,6 +106,7 @@
 			android:id="@+id/keyM"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:textSize="24dip"
 			android:text="@string/korean_ma"
 		/>
 
@@ -110,6 +114,7 @@
 			android:id="@+id/keyB"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:textSize="24dip"
 			android:text="@string/korean_ba"
 		/>
 
@@ -117,6 +122,7 @@
 			android:id="@+id/keyS"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:textSize="24dip"
 			android:text="@string/korean_sa"
 		/>
 	</LinearLayout>
@@ -125,13 +131,14 @@
 		android:id="@+id/LinearLayout02"
 		android:layout_below="@id/LinearLayout01"
 		android:layout_width="fill_parent"
-		android:layout_height="50dip"
+		android:layout_height="wrap_content"
 		android:gravity="center_vertical|center_horizontal|center">
 
 		<Button
 			android:id="@+id/keyNg"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:textSize="24dip"
 			android:text="@string/korean_nga"
 		/>
 
@@ -139,6 +146,7 @@
 			android:id="@+id/keyJ"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:textSize="24dip"
 			android:text="@string/korean_ja"
 		/>
 
@@ -146,6 +154,7 @@
 			android:id="@+id/keyCh"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:textSize="24dip"
 			android:text="@string/korean_cha"
 		/>
 
@@ -153,6 +162,7 @@
 			android:id="@+id/keyK"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:textSize="24dip"
 			android:text="@string/korean_ka"
 		/>
 
@@ -160,6 +170,7 @@
 			android:id="@+id/keyT"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:textSize="24dip"
 			android:text="@string/korean_ta"
 		/>
 
@@ -167,6 +178,7 @@
 			android:id="@+id/keyP"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:textSize="24dip"
 			android:text="@string/korean_pa"
 		/>
 
@@ -174,6 +186,7 @@
 			android:id="@+id/keyH"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:textSize="24dip"
 			android:text="@string/korean_ha"
 		/>
 	</LinearLayout>
@@ -182,7 +195,7 @@
 		android:id="@+id/LinearLayout03"
 		android:layout_below="@id/LinearLayout02"
 		android:layout_width="fill_parent"
-		android:layout_height="50dip"
+		android:layout_height="wrap_content"
 		android:paddingTop="10dip"
 		android:gravity="center_vertical|center_horizontal|center">
 
@@ -190,6 +203,7 @@
 			android:id="@+id/keyA"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:textSize="24dip"
 			android:text="@string/korean_a"
 		/>
 
@@ -197,6 +211,7 @@
 			android:id="@+id/keyYa"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:textSize="24dip"
 			android:text="@string/korean_ya"
 		/>
 
@@ -204,6 +219,7 @@
 			android:id="@+id/keyEo"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:textSize="24dip"
 			android:text="@string/korean_eo"
 		/>
 
@@ -211,6 +227,7 @@
 			android:id="@+id/keyYeo"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:textSize="24dip"
 			android:text="@string/korean_yeo"
 		/>
 
@@ -220,13 +237,14 @@
 		android:id="@+id/LinearLayout04"
 		android:layout_below="@id/LinearLayout03"
 		android:layout_width="fill_parent"
-		android:layout_height="50dip"
+		android:layout_height="wrap_content"
 		android:gravity="center_vertical|center_horizontal|center">
 
 		<Button
 			android:id="@+id/keyO"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:textSize="24dip"
 			android:text="@string/korean_o"
 		/>
 
@@ -234,6 +252,7 @@
 			android:id="@+id/keyU"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:textSize="24dip"
 			android:text="@string/korean_u"
 		/>
 
@@ -241,6 +260,7 @@
 			android:id="@+id/keyEu"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:textSize="24dip"
 			android:text="@string/korean_eu"
 		/>
 	</LinearLayout>
@@ -249,7 +269,7 @@
 		android:id="@+id/LinearLayout05"
 		android:layout_below="@id/LinearLayout04"
 		android:layout_width="fill_parent"
-		android:layout_height="100dip"
+		android:layout_height="wrap_content"
 		android:paddingTop="10dip"
 		android:gravity="center_vertical|center_horizontal|center">
 
@@ -260,7 +280,7 @@
 			android:text="@string/korean_bs"
 			android:textSize="20dip"
 			android:width="100dip"
-			android:height="65dip"
+			android:height="62dip"
 			android:layout_marginRight="20dip" />
 
 		<Button
@@ -270,7 +290,7 @@
 			android:text="@string/korean_sp"
 			android:textSize="20dip"
 			android:width="100dip"
-			android:height="65dip"
+			android:height="62dip"
 			android:layout_marginLeft="20dip"
 		/>
 	</LinearLayout>
