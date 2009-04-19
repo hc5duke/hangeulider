@@ -16,7 +16,7 @@ import android.widget.TextView;
 public class HangeulParser implements TextWatcher {
 	private static Pattern vowelPattern;
 
-	protected Hangeulize hangeulizer;
+	protected Hangeulize mHangeulize;
 	public EditText input;
 	public EditText output;
 	protected Button preview;
@@ -30,50 +30,49 @@ public class HangeulParser implements TextWatcher {
 	private static HashMap<String, Integer> jaeums;
 	private static HashMap<String, String> dubs;
 
-	public HangeulParser(Hangeulize h) {
-		this.hangeulizer = h;
-		output = (EditText) h.findViewById(R.id.outputEdit);
-		helper = (TextView) h.findViewById(R.id.helperLabel);
-		preview = (Button) h.findViewById(R.id.previewButton);
+	public HangeulParser(Hangeulize hangeulize) {
+		this.mHangeulize = hangeulize;
+		output = (EditText) hangeulize.findViewById(R.id.outputEdit);
+		helper = (TextView) hangeulize.findViewById(R.id.helperLabel);
+		preview = (Button) hangeulize.findViewById(R.id.previewButton);
 		preview.setText("");
 		preview.setOnClickListener(new PreviewButtonListener(this));
 		// preview.setLongClickable(true); // TODO: han ja
 
-		ClipboardManager manager = (ClipboardManager) h
-				.getSystemService(android.content.Context.CLIPBOARD_SERVICE);
-		copy = (Button) h.findViewById(R.id.copyButton);
-		copy.setOnClickListener(new CopyButtonListener(output, manager));
-		input = (EditText) h.findViewById(R.id.inputEdit);
+		MyButtonListener buttonListener = new MyButtonListener(hangeulize, output);
+
+		copy = (Button) hangeulize.findViewById(R.id.copyButton);
+		copy.setOnClickListener(buttonListener);
+		input = (EditText) hangeulize.findViewById(R.id.inputEdit);
 		input.addTextChangedListener(this);
 		input.requestFocus();
 
-		MyButtonListener buttonListener = new MyButtonListener(h, output);
-		if (h.isWide()) {
-			mode = (Button) h.findViewById(R.id.modeButton);
+		if (hangeulize.isWide()) {
+			mode = (Button) hangeulize.findViewById(R.id.modeButton);
 			mode.setOnClickListener(buttonListener);
 		} else { // tall mode
-			LinearLayout layout = (LinearLayout) h
+			LinearLayout layout = (LinearLayout) hangeulize
 					.findViewById(R.id.LinearLayout01);
 			for (int i = 0; i < layout.getChildCount(); i++) {
 				Button button = (Button) layout.getChildAt(i);
 				button.setOnClickListener(buttonListener);
 			}
-			layout = (LinearLayout) h.findViewById(R.id.LinearLayout02);
+			layout = (LinearLayout) hangeulize.findViewById(R.id.LinearLayout02);
 			for (int i = 0; i < layout.getChildCount(); i++) {
 				Button button = (Button) layout.getChildAt(i);
 				button.setOnClickListener(buttonListener);
 			}
-			layout = (LinearLayout) h.findViewById(R.id.LinearLayout03);
+			layout = (LinearLayout) hangeulize.findViewById(R.id.LinearLayout03);
 			for (int i = 0; i < layout.getChildCount(); i++) {
 				Button button = (Button) layout.getChildAt(i);
 				button.setOnClickListener(buttonListener);
 			}
-			layout = (LinearLayout) h.findViewById(R.id.LinearLayout04);
+			layout = (LinearLayout) hangeulize.findViewById(R.id.LinearLayout04);
 			for (int i = 0; i < layout.getChildCount(); i++) {
 				Button button = (Button) layout.getChildAt(i);
 				button.setOnClickListener(buttonListener);
 			}
-			layout = (LinearLayout) h.findViewById(R.id.LinearLayout05);
+			layout = (LinearLayout) hangeulize.findViewById(R.id.LinearLayout05);
 			for (int i = 0; i < layout.getChildCount(); i++) {
 				Button button = (Button) layout.getChildAt(i);
 				button.setOnClickListener(buttonListener);
@@ -101,7 +100,7 @@ public class HangeulParser implements TextWatcher {
 				input.setText("");
 			output.setText(output.getText().append(' '));
 		} else {
-			if (hangeulizer.getDubeolshikMode()) {
+			if (mHangeulize.getDubeolshikMode()) {
 				parseDuBeolShik(text, finalize);
 			} else {
 				parseKonglish(text, finalize);
@@ -200,7 +199,7 @@ public class HangeulParser implements TextWatcher {
 	}
 
 	public void setModeText() {
-		if (hangeulizer.getDubeolshikMode()) {
+		if (mHangeulize.getDubeolshikMode()) {
 			if (helper != null)
 				helper.setText(R.string.type_here2);
 			if (mode != null)

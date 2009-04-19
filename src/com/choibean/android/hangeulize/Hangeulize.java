@@ -16,6 +16,8 @@ import android.view.Display;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 
 public class Hangeulize extends Activity {
 
@@ -27,11 +29,25 @@ public class Hangeulize extends Activity {
 	protected Menu mMenu = null;
 	private int YOURAPP_NOTIFICATION_ID = 30294;
 
+	private static Hangeulize mInstance;
+
+	public static Hangeulize getInstance() {
+		return mInstance;
+	}
+
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		mInstance = this;
+        Window window = getWindow();
+        window.setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,
+                WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
 		setContentView(isWide() ? R.layout.wide : R.layout.tall);
+		if (parser != null) {
+			parser = null;
+			System.gc();
+		}
 		parser = new HangeulParser(this);
 		setDubeolshikMode(false);
 

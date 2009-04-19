@@ -1,33 +1,43 @@
 package com.choibean.android.hangeulize;
 
+import android.content.Context;
+import android.text.ClipboardManager;
 import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MyButtonListener implements OnClickListener {
-	Hangeulize hangeulizer;
+	Hangeulize mHangeulize;
 	EditText view;
 
 	public MyButtonListener(Hangeulize h, EditText tv) {
-		this.hangeulizer = h;
+		this.mHangeulize = h;
 		this.view = tv;
 	}
 
 	public void onClick(View v) {
-		if (v.getId() == R.id.modeButton) {
-			hangeulizer.toggleDubeolshikMode();
+		int id = v.getId();
+		HangeulParser parser = Hangeulize.parser;
+		Log.d("click", "<id> = " + id);
+		if (id == R.id.modeButton) {
+			mHangeulize.toggleDubeolshikMode();
+		} else if (id == R.id.previewButton) {
+			parser.grabText();
+		} else if (id == R.id.copyButton) {
+			ClipboardManager clipboard = (ClipboardManager) mHangeulize
+					.getSystemService(android.content.Context.CLIPBOARD_SERVICE);
+			clipboard.setText(this.view.getText());
+			StringBuffer message = new StringBuffer().append('[').append(
+					this.view.getText()).append("] copied to clipboard");
+			Toast.makeText(Hangeulize.getInstance(), message, Toast.LENGTH_SHORT).show();
 		} else {
-			int id = v.getId();
-			Log.d("click", "<id> = " + id);
 			String ch = "";
-			HangeulParser parser = hangeulizer.parser;
 			EditText input = parser.input;
 			EditText output = parser.output;
 			Editable editable = input.getText();
-			Button copy = parser.copy;
 
 			switch (id) {
 			case R.id.keyG:
@@ -99,11 +109,14 @@ public class MyButtonListener implements OnClickListener {
 				break;
 			case R.id.keyBs:
 				if (editable.length() > 0) {
-					input.setText(editable.subSequence(0, editable.length() - 1));
+					input.setText(editable
+							.subSequence(0, editable.length() - 1));
 				} else {
 					int len = output.length();
 					if (len > 0) {
-						output.setText(output.getText().subSequence(0, len - 1));
+						output
+								.setText(output.getText().subSequence(0,
+										len - 1));
 					}
 				}
 				ch = "";
