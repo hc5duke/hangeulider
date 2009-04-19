@@ -93,7 +93,6 @@ public class MyButtonListener implements OnClickListener {
 				ch = "eu";
 				break;
 			case R.id.keySp:
-				input.setText(editable.append(' '));
 				parser.grabText();
 				ch = "";
 				break;
