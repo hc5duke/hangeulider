@@ -30,8 +30,6 @@ public class HangeulParser implements TextWatcher {
 	private static HashMap<String, Integer> jaeums;
 	private static HashMap<String, String> dubs;
 
-	private static String text;
-
 	public HangeulParser(Hangeulize h) {
 		this.hangeulizer = h;
 		output = (EditText) h.findViewById(R.id.outputEdit);
@@ -141,7 +139,6 @@ public class HangeulParser implements TextWatcher {
 	}
 
 	public void parseKonglish(String text, boolean finalize) {
-		StringBuffer log;
 		String v = "", parts[];
 		text = text.trim().toLowerCase();
 		parts = vowelPattern.split(text);
