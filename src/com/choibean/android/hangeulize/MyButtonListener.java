@@ -25,15 +25,28 @@ public class MyButtonListener implements OnClickListener {
 			mHangeulize.toggleDubeolshikMode();
 		} else if (id == R.id.previewButton) {
 			parser.grabText();
+		} else if (id == R.id.helpButton) {
+			// CharSequence message = mHangeulize.getText(R.string.app_name);
+			// AlertDialog dialog = new AlertDialog(mHangeulize);
+			// dialog.setMessage(message);
 		} else if (id == R.id.copyButton) {
-			ClipboardManager clipboard = (ClipboardManager) mHangeulize
-					.getSystemService(android.content.Context.CLIPBOARD_SERVICE);
-			clipboard.setText(this.view.getText());
-			StringBuffer message = new StringBuffer().append('[').append(
-					this.view.getText()).append(']').append(' ').append(
-					mHangeulize.getString(R.string.copied_to_clipboard));
-			Toast.makeText(Hangeulize.getInstance(), message,
-					Toast.LENGTH_SHORT).show();
+			Editable text = this.view.getText();
+			if (text.length() > 0) {
+				ClipboardManager clipboard = (ClipboardManager) mHangeulize
+						.getSystemService(android.content.Context.CLIPBOARD_SERVICE);
+				clipboard.setText(text);
+				CharSequence msg = mHangeulize
+						.getString(R.string.copied_to_clipboard);
+				StringBuffer message = new StringBuffer().append('[').append(
+						this.view.getText()).append(']').append(' ')
+						.append(msg);
+				Toast.makeText(Hangeulize.getInstance(), message,
+						Toast.LENGTH_SHORT).show();
+			} else {
+				CharSequence msg = mHangeulize.getString(R.string.copy_failed);
+				Toast.makeText(Hangeulize.getInstance(), msg,
+						Toast.LENGTH_SHORT).show();
+			}
 		} else {
 			String ch = "";
 			EditText input = parser.input;

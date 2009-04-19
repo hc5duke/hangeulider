@@ -8,8 +8,9 @@
 <string name="dbs_on">두벌식: ON</string>
 <string name="notification_title">Hangeulize!</string>
 <string name="notification_motto">한글 Virtual Keyboard</string>
+<string name="copy">Copy</string>
 <string name="help">Help!</string>
-<string name="korean_label">한글 (Korean):</string>
+<string name="korean_label">한글:</string>
 <string name="korean_ga">ㄱ</string>
 <string name="korean_na">ㄴ</string>
 <string name="korean_da">ㄷ</string>
@@ -35,5 +36,6 @@
 <string name="korean_bs">&lt; Bs</string>
 <string name="korean_sp">Sp &gt;</string>
 
+<string name="copy_failed">Nothing to copy!</string>
 <string name="copied_to_clipboard">copied to clipboard</string>
 </resources>

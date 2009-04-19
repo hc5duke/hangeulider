@@ -1,84 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:gravity="bottom"
-    android:background="#80000000" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:gravity="bottom" android:background="#80000000">
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="fill_parent" android:layout_alignParentLeft="true"
+		android:layout_height="wrap_content" android:orientation="vertical">
+		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_width="fill_parent" android:layout_alignParentLeft="true"
+			android:layout_height="wrap_content" android:gravity="top|center">
+			<Button android:id="@+id/copyButton" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:width="100dip"
+				android:text="@string/copy" />
+			<Button android:id="@+id/helpButton" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:width="100dip"
+				android:text="@string/help" />
+			<Button android:id="@+id/modeButton" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:width="100dip"
+				android:text="@string/dbs_off" />
+		</LinearLayout>
+		<TextView android:id="@+id/helperLabel" android:text="@string/type_here1"
+			android:layout_width="fill_parent" android:layout_height="wrap_content" />
+		<EditText android:id="@+id/inputEdit" android:layout_height="wrap_content"
+			android:background="@android:drawable/editbox_background"
+			android:layout_width="fill_parent" />
 
-	<TextView android:id="@+id/previewLabel"
-		android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:text="Preview"
-        android:layout_width="80dip"/>
+		<LinearLayout android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:addStatesFromChildren="true"
+			android:gravity="center_vertical" android:paddingRight="0dip"
+			android:background="@android:drawable/edit_text">
+			<TextView android:id="@+id/koreanLabel" android:text="@string/korean_label"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textColor="?android:attr/textColorSecondary"
+				android:textAppearance="?android:attr/textAppearanceLargeInverse" />
 
-	<Button android:id="@+id/previewButton"
-		android:layout_below="@id/previewLabel"
-		android:layout_width="120dip"
-		android:layout_height="130dip"
-        android:layout_alignParentRight="true"
-        android:layout_gravity="center_horizontal"
-        android:text="_"
-        android:textSize="90dip"
- />
+			<EditText android:id="@+id/outputEdit" android:layout_width="wrap_content"
+				android:layout_weight="1" android:layout_height="wrap_content"
+				android:layout_below="@id/koreanLabel" android:layout_toLeftOf="@id/previewButton"
+				android:selectAllOnFocus="true" android:textSize="30dip"
+				android:singleLine="true" android:background="@null" />
+		</LinearLayout>
+	</LinearLayout>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_alignParentRight="true" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:orientation="vertical">
+		<TextView android:id="@+id/previewLabel"
+			android:layout_height="wrap_content" android:layout_alignParentRight="true"
+			android:text="Preview" android:layout_width="80dip" />
+		<Button android:id="@+id/previewButton" android:layout_below="@id/previewLabel"
+			android:layout_width="120dip" android:layout_height="130dip"
+			android:layout_alignParentRight="true" android:layout_gravity="center_horizontal"
+			android:text="_" android:textSize="90dip" />
+	</LinearLayout>
 
-    <TextView
-        android:id="@+id/helperLabel"
-        android:text="@string/type_here1"
-        android:layout_toLeftOf="@id/previewLabel"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
-
-    <EditText
-        android:id="@+id/inputEdit"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/editbox_background"
-        android:layout_below="@id/helperLabel"
-        android:layout_toLeftOf="@id/previewButton"
-        android:layout_width="fill_parent"/>
-
-    <TextView
-    	android:id="@+id/koreanLabel"
-    	android:text="@string/korean_label"
-    	android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"
-    	android:layout_below="@id/inputEdit"/>
-
-    <EditText
-        android:id="@+id/outputEdit"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/editbox_background"
-        android:layout_below="@id/koreanLabel"
-        android:layout_toLeftOf="@id/previewButton"
-        android:selectAllOnFocus="true"
-        android:textSize="30dip"/>
-
-    <Button
-        android:id="@+id/copyButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dip"
-        android:width="100dip"
-        android:text="Copy"
-        android:layout_below="@id/outputEdit"
-        />
-
-    <Button
-        android:id="@+id/modeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/copyButton"
-        android:width="100dip"
-        android:text="@string/dbs_off"
-        android:layout_below="@id/outputEdit"
-        />
-
-    <Button
-        android:id="@+id/helpButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/modeButton"
-        android:text="@string/help"
-        android:layout_below="@id/outputEdit"
-         android:width="100dip"/>
-</RelativeLayout>
+</LinearLayout>

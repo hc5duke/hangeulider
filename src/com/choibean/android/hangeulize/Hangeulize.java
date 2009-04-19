@@ -10,6 +10,7 @@ import android.app.PendingIntent;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Display;
@@ -18,6 +19,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class Hangeulize extends Activity {
 
@@ -45,10 +48,8 @@ public class Hangeulize extends Activity {
 				WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
 		setContentView(isWide() ? R.layout.wide : R.layout.tall);
 
-		if (parser != null) {
-			parser = null;
-			System.gc();
-		}
+		// load previous text
+		mSaved = (EditText) findViewById(R.id.outputEdit);
 		parser = new HangeulParser(this);
 		setDubeolshikMode(false);
 
@@ -78,10 +79,26 @@ public class Hangeulize extends Activity {
 	}
 
 	@Override
-	protected void onStop() {
-		super.onStop();
-		Log.d("status", "stop");
+	protected void onResume() {
+        super.onResume();
+
+		SharedPreferences prefs = getPreferences(0);
+		String restoredText = prefs.getString("text", null);
+		if (restoredText != null) {
+			mSaved.setText(restoredText, TextView.BufferType.EDITABLE);
+		}
 	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+
+		SharedPreferences.Editor editor = getPreferences(0).edit();
+		editor.putString("text", mSaved.getText().toString());
+		editor.commit();
+	}
+
+	private EditText mSaved;
 
 	protected void sendNotification(Context context) {
 		mNotificationManager = (NotificationManager) context

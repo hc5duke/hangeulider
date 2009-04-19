@@ -38,7 +38,8 @@ public class HangeulParser implements TextWatcher {
 		preview.setOnClickListener(new PreviewButtonListener(this));
 		// preview.setLongClickable(true); // TODO: han ja
 
-		MyButtonListener buttonListener = new MyButtonListener(hangeulize, output);
+		MyButtonListener buttonListener = new MyButtonListener(hangeulize,
+				output);
 
 		copy = (Button) hangeulize.findViewById(R.id.copyButton);
 		copy.setOnClickListener(buttonListener);
@@ -56,22 +57,26 @@ public class HangeulParser implements TextWatcher {
 				Button button = (Button) layout.getChildAt(i);
 				button.setOnClickListener(buttonListener);
 			}
-			layout = (LinearLayout) hangeulize.findViewById(R.id.LinearLayout02);
+			layout = (LinearLayout) hangeulize
+					.findViewById(R.id.LinearLayout02);
 			for (int i = 0; i < layout.getChildCount(); i++) {
 				Button button = (Button) layout.getChildAt(i);
 				button.setOnClickListener(buttonListener);
 			}
-			layout = (LinearLayout) hangeulize.findViewById(R.id.LinearLayout03);
+			layout = (LinearLayout) hangeulize
+					.findViewById(R.id.LinearLayout03);
 			for (int i = 0; i < layout.getChildCount(); i++) {
 				Button button = (Button) layout.getChildAt(i);
 				button.setOnClickListener(buttonListener);
 			}
-			layout = (LinearLayout) hangeulize.findViewById(R.id.LinearLayout04);
+			layout = (LinearLayout) hangeulize
+					.findViewById(R.id.LinearLayout04);
 			for (int i = 0; i < layout.getChildCount(); i++) {
 				Button button = (Button) layout.getChildAt(i);
 				button.setOnClickListener(buttonListener);
 			}
-			layout = (LinearLayout) hangeulize.findViewById(R.id.LinearLayout05);
+			layout = (LinearLayout) hangeulize
+					.findViewById(R.id.LinearLayout05);
 			for (int i = 0; i < layout.getChildCount(); i++) {
 				Button button = (Button) layout.getChildAt(i);
 				button.setOnClickListener(buttonListener);
@@ -113,9 +118,13 @@ public class HangeulParser implements TextWatcher {
 	public void grabText() {
 		CharSequence cs = preview.getText();
 		output.setText(output.getText().append(cs));
+		int len = output.length();
+		if (len != 0)
+			output.setSelection(len - 1, len);
 		if (input != null)
 			input.setText("");
 		preview.setText("");
+
 	}
 
 	public void parseDuBeolShik(String text, boolean finalize) {
@@ -181,9 +190,10 @@ public class HangeulParser implements TextWatcher {
 			}
 		}
 
-//		log = new StringBuffer(consonant).append(',').append(vowel).append(',')
-//				.append(bachim);
-//		Log.d("status", log.toString());
+		// log = new
+		// StringBuffer(consonant).append(',').append(vowel).append(',')
+		// .append(bachim);
+		// Log.d("status", log.toString());
 
 		char c = (char) (unicode);
 		Log.d("status", String.valueOf(c));
