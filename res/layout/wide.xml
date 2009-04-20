@@ -4,16 +4,16 @@
 	android:background="#80000000" android:orientation="vertical">
 	<LinearLayout android:addStatesFromChildren="true"
 		android:layout_width="fill_parent" android:layout_height="wrap_content"
-		android:gravity="top" android:background="@android:drawable/edit_text">
+		android:background="@android:drawable/edit_text" android:gravity="center_vertical">
 		<TextView android:id="@+id/koreanLabel" android:text="@string/korean_label"
 			android:layout_width="wrap_content" android:layout_height="fill_parent"
-			android:gravity="center"
-			android:textColor="?android:attr/textColorSecondary"
+			android:gravity="center" android:textColor="?android:attr/textColorSecondary"
 			android:textAppearance="?android:attr/textAppearanceLargeInverse" />
 		<EditText android:id="@+id/outputEdit" android:layout_width="wrap_content"
-			android:layout_weight="1" android:layout_height="wrap_content"
-			android:selectAllOnFocus="true" android:textSize="30dip"
-			android:singleLine="true" android:background="@null" />
+			android:layout_weight="1" android:selectAllOnFocus="true"
+			android:textSize="30dip" android:layout_marginLeft="5dip"
+			android:singleLine="true" android:background="@null"
+			android:layout_height="wrap_content" android:gravity="center_vertical" />
 		<ImageButton style="@android:style/Widget.Button.Inset"
 			android:id="@+id/outputClearButton" android:src="@android:drawable/ic_delete"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -40,13 +40,20 @@
 					android:layout_height="wrap_content" android:gravity="top|center">
 					<Button android:id="@+id/copyButton" android:layout_width="wrap_content"
 						android:layout_height="wrap_content" android:width="100dip"
-						android:text="@string/copy" android:layout_marginRight="20px" />
+						android:text="@string/copy" android:layout_marginRight="20dip" />
 					<Button android:id="@+id/modeButton" android:layout_width="wrap_content"
 						android:layout_height="wrap_content" android:width="100dip"
 						android:text="@string/dbs_off" />
+					<!--
+						<ImageButton style="@android:style/Widget.Button.Inset"
+						android:id="@+id/helpButton" android:layout_width="wrap_content"
+						android:layout_height="wrap_content" android:width="100dip"
+						android:src="@android:drawable/stat_sys_warning"
+						android:text="@string/help" android:layout_marginLeft="20dip" />
+					-->
 					<Button android:id="@+id/helpButton" android:layout_width="wrap_content"
 						android:layout_height="wrap_content" android:width="100dip"
-						android:text="@string/help" android:layout_marginLeft="20px" />
+						android:text="@string/help" android:layout_marginLeft="20dip" />
 				</LinearLayout>
 			</LinearLayout>
 			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
