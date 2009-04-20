@@ -23,7 +23,7 @@ public final class R {
         public static final int LinearLayout04=0x7f07001e;
         public static final int copyButton=0x7f070003;
         public static final int helpButton=0x7f070004;
-        public static final int helperLabel=0x7f070023;
+        public static final int helperLabel=0x7f070022;
         public static final int inputEdit=0x7f070008;
         public static final int keyA=0x7f07001a;
         public static final int keyB=0x7f07000f;
@@ -49,7 +49,7 @@ public final class R {
         public static final int keyYa=0x7f07001b;
         public static final int keyYeo=0x7f07001d;
         public static final int koreanLabel=0x7f070000;
-        public static final int modeButton=0x7f070022;
+        public static final int modeButton=0x7f070023;
         public static final int notificationMenuItem=0x7f070025;
         public static final int outputClearButton=0x7f070002;
         public static final int outputEdit=0x7f070001;
