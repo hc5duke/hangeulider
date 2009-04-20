@@ -28,18 +28,17 @@
 			<LinearLayout android:layout_width="220dip"
 				android:layout_height="fill_parent" android:orientation="vertical">
 				<LinearLayout android:layout_width="fill_parent"
-					android:paddingTop="10dip" android:gravity="top|center"
-					android:layout_height="wrap_content">
+					android:gravity="top|center"
+					android:layout_height="wrap_content" android:paddingTop="5dip">
 					<Button android:id="@+id/copyButton" android:layout_height="wrap_content"
 						android:text="@string/copy" android:layout_width="100dip" />
 					<Button android:id="@+id/helpButton" android:layout_height="wrap_content"
 						android:text="@string/help" android:layout_width="100dip" />
 				</LinearLayout>
 				<LinearLayout android:layout_width="fill_parent"
-					android:paddingTop="10dip" android:gravity="bottom|center"
+					android:gravity="bottom|center"
 					android:layout_height="fill_parent">
-					<Button android:id="@+id/keyDelete" android:layout_height="wrap_content"
-						android:text="@string/key_delete" android:layout_width="100dip" />
+					<Button android:id="@+id/keyDelete" android:text="@string/key_delete" android:layout_width="100dip" android:layout_height="wrap_content"/>
 					<Button android:id="@+id/keySpace" android:layout_height="wrap_content"
 						android:text="@string/key_space" android:layout_width="100dip" />
 				</LinearLayout>
