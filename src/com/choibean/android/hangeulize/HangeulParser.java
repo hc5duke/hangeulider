@@ -16,11 +16,14 @@ public class HangeulParser implements TextWatcher {
 	private static Pattern vowelPattern;
 
 	protected Hangeulize mHangeulize;
+
+	// FIXME: all this should move to a viewer class. this is a controller class
 	public EditText input;
 	public EditText output;
 	protected Button preview;
 	protected Button mode;
 	protected Button copy;
+	protected Button help;
 	protected TextView helper;
 
 	private static HashMap<String, Integer> consonants;
@@ -43,6 +46,8 @@ public class HangeulParser implements TextWatcher {
 
 		copy = (Button) hangeulize.findViewById(R.id.copyButton);
 		copy.setOnClickListener(buttonListener);
+		help = (Button) hangeulize.findViewById(R.id.helpButton);
+		help.setOnClickListener(buttonListener);
 		input = (EditText) hangeulize.findViewById(R.id.inputEdit);
 		input.addTextChangedListener(this);
 		input.requestFocus();
