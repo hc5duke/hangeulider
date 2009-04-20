@@ -26,15 +26,22 @@
 <string name="korean_pa">ㅍ</string>
 <string name="korean_ha">ㅎ</string>
 
-<string name="korean_a">ㅏ  ㅐ</string>
-<string name="korean_ya">ㅑ  ㅒ</string>
-<string name="korean_eo">ㅓ  ㅔ</string>
-<string name="korean_yeo">ㅕ  ㅖ</string>
-<string name="korean_o">ㅗ  ㅛ</string>
-<string name="korean_u">ㅜ  ㅠ</string>
-<string name="korean_eu">ㅡ  ㅣ</string>
-<string name="korean_bs">&lt; Bs</string>
-<string name="korean_sp">Sp &gt;</string>
+<string name="korean_a">ㅏ</string>
+<string name="korean_ae">ㅐ</string>
+<string name="korean_ya">ㅑ</string>
+<string name="korean_yae">ㅒ</string>
+<string name="korean_eo">ㅓ</string>
+<string name="korean_e">ㅔ</string>
+<string name="korean_yeo">ㅕ</string>
+<string name="korean_ye">ㅖ</string>
+<string name="korean_o">ㅗ</string>
+<string name="korean_yo">ㅛ</string>
+<string name="korean_u">ㅜ</string>
+<string name="korean_yu">ㅠ</string>
+<string name="korean_eu">ㅡ</string>
+<string name="korean_i">ㅣ</string>
+<string name="key_delete">&lt; Del</string>
+<string name="key_space">Sp &gt;</string>
 
 <string name="copy_failed">Nothing to copy!</string>
 <string name="copied_to_clipboard">copied to clipboard</string>

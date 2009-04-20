@@ -1,298 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="#80000000"
-    >
-
-	<TextView android:id="@+id/previewLabel"
-		android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:text="Preview"
-        android:layout_width="80dip"/>
-
-	<Button android:id="@+id/previewButton"
-		android:layout_below="@id/previewLabel"
-		android:layout_width="80dip"
-		android:layout_height="85dip"
-        android:layout_alignParentRight="true"
-        android:layout_gravity="center_horizontal"
-        android:text="_"
-        android:textSize="60dip"
-        android:shadowColor="#f00" />
-
-    <EditText
-        android:id="@+id/inputEdit"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/editbox_background"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/previewButton"
-       	android:layout_width="80dip" android:textSize="12dip" android:focusable="false"/>
-
-    <TextView
-    	android:id="@+id/koreanLabel"
-    	android:text="@string/korean_label"
-    	android:layout_width="wrap_content"
-    	android:layout_height="wrap_content" />
-
-    <EditText
-        android:id="@+id/outputEdit"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/editbox_background"
-        android:layout_below="@id/koreanLabel"
-        android:layout_toLeftOf="@id/previewButton"
-        android:selectAllOnFocus="true"
-        android:textSize="30dip" android:singleLine="true"/>
-
-    <Button
-        android:id="@+id/copyButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dip"
-        android:width="100dip"
-        android:text="Copy"
-        android:layout_below="@id/outputEdit"
-    />
-
-    <Button
-        android:id="@+id/helpButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/copyButton"
-        android:text="@string/help"
-        android:layout_below="@id/outputEdit"
-         android:width="100dip"
- 	/>
-
-	<LinearLayout
-		android:id="@+id/LinearLayout01"
-		android:layout_below="@id/inputEdit"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:paddingTop="10dip"
-		android:gravity="center_vertical|center_horizontal|center" >
-
-		<Button
-			android:id="@+id/keyG"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textSize="24dip"
-			android:text="@string/korean_ga"/>
-	
-		<Button
-			android:id="@+id/keyN"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textSize="24dip"
-			android:text="@string/korean_na"
-		/>
-	
-		<Button
-			android:id="@+id/keyD"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textSize="24dip"
-			android:text="@string/korean_da"/>
-
-		<Button
-			android:id="@+id/keyR"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textSize="24dip"
-			android:text="@string/korean_ra"
-		/>
-
-		<Button
-			android:id="@+id/keyM"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textSize="24dip"
-			android:text="@string/korean_ma"
-		/>
-
-		<Button
-			android:id="@+id/keyB"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textSize="24dip"
-			android:text="@string/korean_ba"
-		/>
-
-		<Button
-			android:id="@+id/keyS"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textSize="24dip"
-			android:text="@string/korean_sa"
-		/>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical" android:background="#80000000">
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:orientation="vertical">
+		<LinearLayout android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:addStatesFromChildren="true"
+			android:gravity="center_vertical" android:paddingRight="0dip"
+			android:background="@android:drawable/edit_text">
+			<TextView android:id="@+id/koreanLabel" android:text="@string/korean_label"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textColor="?android:attr/textColorSecondary"
+				android:textAppearance="?android:attr/textAppearanceLargeInverse" />
+			<EditText android:id="@+id/outputEdit" android:layout_width="wrap_content"
+				android:layout_weight="1" android:layout_height="wrap_content"
+				android:selectAllOnFocus="true" android:textSize="30dip"
+				android:singleLine="true" android:background="@null" />
+			<ImageButton style="@android:style/Widget.Button.Inset"
+				android:id="@+id/outputClearButton" android:src="@android:drawable/ic_delete"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:layout_marginTop="2dip" android:layout_marginRight="2dip"
+				android:layout_marginBottom="2dip" android:padding="10dip" />
+		</LinearLayout>
+		<LinearLayout android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+			<Button android:id="@+id/copyButton" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="@string/copy" />
+			<Button android:id="@+id/helpButton" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="@string/key_delete" />
+			<Button android:id="@+id/keyDelete" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="@string/key_space" />
+			<Button android:id="@+id/keySpace" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="@string/help" />
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:orientation="vertical">
+				<Button android:id="@+id/previewButton" android:layout_width="fill_parent"
+					android:layout_height="85dip" android:layout_alignParentRight="true"
+					android:layout_gravity="center_horizontal" android:text="_"
+					android:textSize="60dip" android:shadowColor="#f00" />
+				<EditText android:id="@+id/inputEdit"
+					android:layout_height="wrap_content" android:background="@android:drawable/editbox_background"
+					android:layout_alignParentRight="true" android:layout_below="@id/previewButton"
+					android:layout_width="fill_parent" android:textSize="12dip"
+					android:focusable="false" />
+			</LinearLayout>
+		</LinearLayout>
 	</LinearLayout>
-	
-	<LinearLayout
-		android:id="@+id/LinearLayout02"
-		android:layout_below="@id/LinearLayout01"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
+
+	<LinearLayout android:id="@+id/LinearLayout01"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:paddingTop="10dip" android:gravity="center_vertical|center_horizontal|center">
+
+		<Button android:id="@+id/keyG" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textSize="24dip"
+			android:text="@string/korean_ga" />
+
+		<Button android:id="@+id/keyN" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textSize="24dip"
+			android:text="@string/korean_na" />
+
+		<Button android:id="@+id/keyD" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textSize="24dip"
+			android:text="@string/korean_da" />
+
+		<Button android:id="@+id/keyR" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textSize="24dip"
+			android:text="@string/korean_ra" />
+
+		<Button android:id="@+id/keyM" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textSize="24dip"
+			android:text="@string/korean_ma" />
+
+		<Button android:id="@+id/keyB" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textSize="24dip"
+			android:text="@string/korean_ba" />
+
+		<Button android:id="@+id/keyS" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textSize="24dip"
+			android:text="@string/korean_sa" />
+	</LinearLayout>
+
+	<LinearLayout android:id="@+id/LinearLayout02"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
 		android:gravity="center_vertical|center_horizontal|center">
 
-		<Button
-			android:id="@+id/keyNg"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textSize="24dip"
-			android:text="@string/korean_nga"
-		/>
+		<Button android:id="@+id/keyNg" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textSize="24dip"
+			android:text="@string/korean_nga" />
 
-		<Button
-			android:id="@+id/keyJ"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textSize="24dip"
-			android:text="@string/korean_ja"
-		/>
+		<Button android:id="@+id/keyJ" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textSize="24dip"
+			android:text="@string/korean_ja" />
 
-		<Button
-			android:id="@+id/keyCh"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textSize="24dip"
-			android:text="@string/korean_cha"
-		/>
+		<Button android:id="@+id/keyCh" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textSize="24dip"
+			android:text="@string/korean_cha" />
 
-		<Button
-			android:id="@+id/keyK"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textSize="24dip"
-			android:text="@string/korean_ka"
-		/>
+		<Button android:id="@+id/keyK" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textSize="24dip"
+			android:text="@string/korean_ka" />
 
-		<Button
-			android:id="@+id/keyT"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textSize="24dip"
-			android:text="@string/korean_ta"
-		/>
+		<Button android:id="@+id/keyT" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textSize="24dip"
+			android:text="@string/korean_ta" />
 
-		<Button
-			android:id="@+id/keyP"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textSize="24dip"
-			android:text="@string/korean_pa"
-		/>
+		<Button android:id="@+id/keyP" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textSize="24dip"
+			android:text="@string/korean_pa" />
 
-		<Button
-			android:id="@+id/keyH"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textSize="24dip"
-			android:text="@string/korean_ha"
-		/>
+		<Button android:id="@+id/keyH" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textSize="24dip"
+			android:text="@string/korean_ha" />
 	</LinearLayout>
-	
-	<LinearLayout
-		android:id="@+id/LinearLayout03"
-		android:layout_below="@id/LinearLayout02"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:paddingTop="10dip"
+
+	<LinearLayout android:id="@+id/LinearLayout03"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:paddingTop="10dip" android:gravity="center_vertical|center_horizontal|center">
+
+		<Button android:id="@+id/keyA" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textSize="24dip"
+			android:text="@string/korean_a" />
+
+		<Button android:id="@+id/keyYa" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textSize="24dip"
+			android:text="@string/korean_ya" />
+
+		<Button android:id="@+id/keyEo" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textSize="24dip"
+			android:text="@string/korean_eo" />
+
+		<Button android:id="@+id/keyYeo" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textSize="24dip"
+			android:text="@string/korean_yeo" />
+
+	</LinearLayout>
+
+	<LinearLayout android:id="@+id/LinearLayout04"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
 		android:gravity="center_vertical|center_horizontal|center">
 
-		<Button
-			android:id="@+id/keyA"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textSize="24dip"
-			android:text="@string/korean_a"
-		/>
+		<Button android:id="@+id/keyO" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textSize="24dip"
+			android:text="@string/korean_o" />
 
-		<Button
-			android:id="@+id/keyYa"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textSize="24dip"
-			android:text="@string/korean_ya"
-		/>
+		<Button android:id="@+id/keyU" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textSize="24dip"
+			android:text="@string/korean_u" />
 
-		<Button
-			android:id="@+id/keyEo"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textSize="24dip"
-			android:text="@string/korean_eo"
-		/>
-
-		<Button
-			android:id="@+id/keyYeo"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textSize="24dip"
-			android:text="@string/korean_yeo"
-		/>
-
+		<Button android:id="@+id/keyEu" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textSize="24dip"
+			android:text="@string/korean_eu" />
 	</LinearLayout>
-
-	<LinearLayout
-		android:id="@+id/LinearLayout04"
-		android:layout_below="@id/LinearLayout03"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:gravity="center_vertical|center_horizontal|center">
-
-		<Button
-			android:id="@+id/keyO"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textSize="24dip"
-			android:text="@string/korean_o"
-		/>
-
-		<Button
-			android:id="@+id/keyU"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textSize="24dip"
-			android:text="@string/korean_u"
-		/>
-
-		<Button
-			android:id="@+id/keyEu"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textSize="24dip"
-			android:text="@string/korean_eu"
-		/>
-	</LinearLayout>
-
-	<LinearLayout
-		android:id="@+id/LinearLayout05"
-		android:layout_below="@id/LinearLayout04"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:paddingTop="10dip"
-		android:gravity="center_vertical|center_horizontal|center">
-
-		<Button
-			android:id="@+id/keyBs"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/korean_bs"
-			android:textSize="20dip"
-			android:width="100dip"
-			android:height="62dip"
-			android:layout_marginRight="20dip" />
-
-		<Button
-			android:id="@+id/keySp"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/korean_sp"
-			android:textSize="20dip"
-			android:width="100dip"
-			android:height="62dip"
-			android:layout_marginLeft="20dip"
-		/>
-	</LinearLayout>
-</RelativeLayout>
+</LinearLayout>

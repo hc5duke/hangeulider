@@ -77,12 +77,12 @@ public class HangeulParser implements TextWatcher {
 				Button button = (Button) layout.getChildAt(i);
 				button.setOnClickListener(buttonListener);
 			}
-			layout = (LinearLayout) hangeulize
-					.findViewById(R.id.LinearLayout05);
-			for (int i = 0; i < layout.getChildCount(); i++) {
-				Button button = (Button) layout.getChildAt(i);
-				button.setOnClickListener(buttonListener);
-			}
+			Button buttonBackspace = (Button) hangeulize
+					.findViewById(R.id.keyDelete);
+			buttonBackspace.setOnClickListener(buttonListener);
+			Button buttonSpace = (Button) hangeulize
+					.findViewById(R.id.keySpace);
+			buttonSpace.setOnClickListener(buttonListener);
 		}
 		setupObjects();
 	}

@@ -2,7 +2,7 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:alphabeticShortcut="d" android:checked="false" android:checkable="true" android:id="@+id/dubeolshikMenuItem" android:title="DuBeolShik Mode"/>
+    
 
     
 

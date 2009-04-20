@@ -119,11 +119,11 @@ public class MyButtonListener implements OnClickListener {
 			case R.id.keyEu:
 				ch = "eu";
 				break;
-			case R.id.keySp:
+			case R.id.keySpace:
 				parser.grabText();
 				ch = "";
 				break;
-			case R.id.keyBs:
+			case R.id.keyDelete:
 				if (editable.length() > 0) {
 					input.setText(editable
 							.subSequence(0, editable.length() - 1));

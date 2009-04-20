@@ -17,17 +17,15 @@ import android.view.Display;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.TextView;
 
 public class Hangeulize extends Activity {
 
 	protected static HangeulParser parser;
-	protected static final int modeDuBeolShik = 0;
+	protected static final int modeDubeolshik = 0;
 	protected static final int modeKonglish = 1;
 	protected static int inputMode = 1;
 	protected NotificationManager mNotificationManager;
@@ -144,16 +142,9 @@ public class Hangeulize extends Activity {
 		if (mMenu == null) {
 			return false;
 		}
-		MenuItem dbsMode = mMenu.findItem(R.id.dubeolshikMenuItem);
-		boolean dMode = dbsMode.isChecked();
-		int iconId = dMode ? android.R.drawable.checkbox_on_background
-				: android.R.drawable.checkbox_off_background;
-		dbsMode.setIcon(iconId);
-		dbsMode.setChecked(dMode);
-
 		MenuItem notification = mMenu.findItem(R.id.notificationMenuItem);
 		boolean nMode = notification.isChecked();
-		iconId = nMode ? android.R.drawable.checkbox_on_background
+		int iconId = nMode ? android.R.drawable.checkbox_on_background
 				: android.R.drawable.checkbox_off_background;
 		notification.setIcon(iconId);
 		notification.setChecked(nMode);
@@ -165,14 +156,7 @@ public class Hangeulize extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		int id = item.getItemId();
 		Log.d("menu ", String.valueOf(id));
-		if (id == R.id.dubeolshikMenuItem) {
-			if (item.isChecked()) {
-				item.setChecked(false);
-			} else {
-				item.setChecked(true);
-			}
-			setDubeolshikMode(item.isChecked());
-		} else if (id == R.id.notificationMenuItem) {
+		if (id == R.id.notificationMenuItem) {
 			if (item.isChecked()) {
 				toggleNotification(false);
 			} else {
@@ -197,12 +181,13 @@ public class Hangeulize extends Activity {
 	}
 
 	public boolean getDubeolshikMode() {
-		return (Hangeulize.inputMode == modeDuBeolShik);
+		// tall mode has no dbs
+		return (Hangeulize.inputMode == modeDubeolshik) && isWide();
 	}
 
 	public void setDubeolshikMode(boolean dubeolshik) {
 		Log.d("mode", String.valueOf(dubeolshik));
-		Hangeulize.inputMode = dubeolshik ? modeDuBeolShik : modeKonglish;
+		Hangeulize.inputMode = dubeolshik ? modeDubeolshik : modeKonglish;
 
 		parser.setModeText();
 	}
