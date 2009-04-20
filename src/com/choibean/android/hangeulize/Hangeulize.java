@@ -162,6 +162,8 @@ public class Hangeulize extends Activity {
 			} else {
 				toggleNotification(true);
 			}
+		} else if (id == R.id.exitMenuItem) {
+			this.finish();
 		}
 		// cancelNotification
 		return false;

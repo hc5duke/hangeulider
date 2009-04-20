@@ -101,23 +101,44 @@ public class MyButtonListener implements OnClickListener {
 			case R.id.keyA:
 				ch = "a";
 				break;
+			case R.id.keyAe:
+				ch = "ae";
+				break;
 			case R.id.keyYa:
 				ch = "ya";
+				break;
+			case R.id.keyYae:
+				ch = "yae";
 				break;
 			case R.id.keyEo:
 				ch = "eo";
 				break;
+			case R.id.keyE:
+				ch = "e";
+				break;
 			case R.id.keyYeo:
 				ch = "yeo";
+				break;
+			case R.id.keyYe:
+				ch = "ye";
 				break;
 			case R.id.keyO:
 				ch = "o";
 				break;
+			case R.id.keyYo:
+				ch = "yo";
+				break;
 			case R.id.keyU:
 				ch = "u";
 				break;
+			case R.id.keyYu:
+				ch = "yu";
+				break;
 			case R.id.keyEu:
 				ch = "eu";
+				break;
+			case R.id.keyI:
+				ch = "i";
 				break;
 			case R.id.keySpace:
 				parser.grabText();
