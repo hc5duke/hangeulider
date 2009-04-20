@@ -1,4 +1,4 @@
-package com.choibean.android.hangeulize;
+package com.choibean.android.hangeulider;
 
 import java.util.HashMap;
 import java.util.regex.Matcher;
@@ -15,7 +15,7 @@ import android.widget.TextView;
 public class HangeulParser implements TextWatcher {
 	private static Pattern vowelPattern;
 
-	protected Hangeulize mHangeulize;
+	protected Hangeulider mHangeulider;
 
 	// FIXME: all this should move to a viewer class. this is a controller class
 	public EditText input;
@@ -32,59 +32,59 @@ public class HangeulParser implements TextWatcher {
 	private static HashMap<String, Integer> jaeums;
 	private static HashMap<String, String> dubs;
 
-	public HangeulParser(Hangeulize hangeulize) {
-		this.mHangeulize = hangeulize;
-		output = (EditText) hangeulize.findViewById(R.id.outputEdit);
-		helper = (TextView) hangeulize.findViewById(R.id.helperLabel);
-		preview = (Button) hangeulize.findViewById(R.id.previewButton);
+	public HangeulParser(Hangeulider Hangeulider) {
+		this.mHangeulider = Hangeulider;
+		output = (EditText) Hangeulider.findViewById(R.id.outputEdit);
+		helper = (TextView) Hangeulider.findViewById(R.id.helperLabel);
+		preview = (Button) Hangeulider.findViewById(R.id.previewButton);
 		preview.setText("");
 		preview.setOnClickListener(new PreviewButtonListener(this));
 		// preview.setLongClickable(true); // TODO: han ja
 
-		MyButtonListener buttonListener = new MyButtonListener(hangeulize,
+		MyButtonListener buttonListener = new MyButtonListener(Hangeulider,
 				output);
 
-		copy = (Button) hangeulize.findViewById(R.id.copyButton);
+		copy = (Button) Hangeulider.findViewById(R.id.copyButton);
 		copy.setOnClickListener(buttonListener);
-		help = (Button) hangeulize.findViewById(R.id.helpButton);
+		help = (Button) Hangeulider.findViewById(R.id.helpButton);
 		help.setOnClickListener(buttonListener);
-		input = (EditText) hangeulize.findViewById(R.id.inputEdit);
+		input = (EditText) Hangeulider.findViewById(R.id.inputEdit);
 		input.addTextChangedListener(this);
 		input.requestFocus();
-		hangeulize.findViewById(R.id.outputClearButton).setOnClickListener(
+		Hangeulider.findViewById(R.id.outputClearButton).setOnClickListener(
 				buttonListener);
-		if (hangeulize.isWide()) {
-			mode = (Button) hangeulize.findViewById(R.id.modeButton);
+		if (Hangeulider.isWide()) {
+			mode = (Button) Hangeulider.findViewById(R.id.modeButton);
 			mode.setOnClickListener(buttonListener);
 		} else { // tall mode
-			LinearLayout layout = (LinearLayout) hangeulize
+			LinearLayout layout = (LinearLayout) Hangeulider
 					.findViewById(R.id.LinearLayout01);
 			for (int i = 0; i < layout.getChildCount(); i++) {
 				Button button = (Button) layout.getChildAt(i);
 				button.setOnClickListener(buttonListener);
 			}
-			layout = (LinearLayout) hangeulize
+			layout = (LinearLayout) Hangeulider
 					.findViewById(R.id.LinearLayout02);
 			for (int i = 0; i < layout.getChildCount(); i++) {
 				Button button = (Button) layout.getChildAt(i);
 				button.setOnClickListener(buttonListener);
 			}
-			layout = (LinearLayout) hangeulize
+			layout = (LinearLayout) Hangeulider
 					.findViewById(R.id.LinearLayout03);
 			for (int i = 0; i < layout.getChildCount(); i++) {
 				Button button = (Button) layout.getChildAt(i);
 				button.setOnClickListener(buttonListener);
 			}
-			layout = (LinearLayout) hangeulize
+			layout = (LinearLayout) Hangeulider
 					.findViewById(R.id.LinearLayout04);
 			for (int i = 0; i < layout.getChildCount(); i++) {
 				Button button = (Button) layout.getChildAt(i);
 				button.setOnClickListener(buttonListener);
 			}
-			Button buttonBackspace = (Button) hangeulize
+			Button buttonBackspace = (Button) Hangeulider
 					.findViewById(R.id.keyDelete);
 			buttonBackspace.setOnClickListener(buttonListener);
-			Button buttonSpace = (Button) hangeulize
+			Button buttonSpace = (Button) Hangeulider
 					.findViewById(R.id.keySpace);
 			buttonSpace.setOnClickListener(buttonListener);
 		}
@@ -110,7 +110,7 @@ public class HangeulParser implements TextWatcher {
 				input.setText("");
 			output.setText(output.getText().append(' '));
 		} else {
-			if (mHangeulize.getDubeolshikMode()) {
+			if (mHangeulider.getDubeolshikMode()) {
 				parseDuBeolShik(text, finalize);
 			} else {
 				parseKonglish(text, finalize);
@@ -214,7 +214,7 @@ public class HangeulParser implements TextWatcher {
 	}
 
 	public void setModeText() {
-		if (mHangeulize.getDubeolshikMode()) {
+		if (mHangeulider.getDubeolshikMode()) {
 			if (helper != null)
 				helper.setText(R.string.type_here2);
 			if (mode != null)

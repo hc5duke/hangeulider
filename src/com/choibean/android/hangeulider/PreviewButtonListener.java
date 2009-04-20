@@ -1,4 +1,4 @@
-package com.choibean.android.hangeulize;
+package com.choibean.android.hangeulider;
 
 import android.view.View;
 import android.view.View.OnClickListener;

@@ -1,4 +1,4 @@
-package com.choibean.android.hangeulize;
+package com.choibean.android.hangeulider;
 
 import android.app.AlertDialog;
 import android.text.ClipboardManager;
@@ -10,27 +10,27 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MyButtonListener implements OnClickListener {
-	Hangeulize mHangeulize;
+	Hangeulider mHangeulider;
 	EditText view;
 
-	public MyButtonListener(Hangeulize h, EditText tv) {
-		this.mHangeulize = h;
+	public MyButtonListener(Hangeulider h, EditText tv) {
+		this.mHangeulider = h;
 		this.view = tv;
 	}
 
 	public void onClick(View v) {
 		int id = v.getId();
-		HangeulParser parser = Hangeulize.parser;
+		HangeulParser parser = Hangeulider.parser;
 		Log.d("click", "<id> = " + id);
 		if (id == R.id.modeButton) {
-			mHangeulize.toggleDubeolshikMode();
+			mHangeulider.toggleDubeolshikMode();
 		} else if (id == R.id.previewButton) {
 			parser.grabText();
 		} else if (id == R.id.outputClearButton) {
-			((EditText) mHangeulize.findViewById(R.id.outputEdit)).setText("");
+			((EditText) mHangeulider.findViewById(R.id.outputEdit)).setText("");
 		} else if (id == R.id.helpButton) {
-			CharSequence message = mHangeulize.getText(R.string.help_text);
-			AlertDialog dialog = (new AlertDialog.Builder(Hangeulize.getInstance())).create();
+			CharSequence message = mHangeulider.getText(R.string.help_text);
+			AlertDialog dialog = (new AlertDialog.Builder(Hangeulider.getInstance())).create();
 			dialog.setTitle("Help!");
 			dialog.setMessage(message);
 			dialog.show();
@@ -38,19 +38,19 @@ public class MyButtonListener implements OnClickListener {
 		} else if (id == R.id.copyButton) {
 			Editable text = this.view.getText();
 			if (text.length() > 0) {
-				ClipboardManager clipboard = (ClipboardManager) mHangeulize
+				ClipboardManager clipboard = (ClipboardManager) mHangeulider
 						.getSystemService(android.content.Context.CLIPBOARD_SERVICE);
 				clipboard.setText(text);
-				CharSequence msg = mHangeulize
+				CharSequence msg = mHangeulider
 						.getString(R.string.copied_to_clipboard);
 				StringBuffer message = new StringBuffer().append('[').append(
 						this.view.getText()).append(']').append(' ')
 						.append(msg);
-				Toast.makeText(Hangeulize.getInstance(), message,
+				Toast.makeText(Hangeulider.getInstance(), message,
 						Toast.LENGTH_SHORT).show();
 			} else {
-				CharSequence msg = mHangeulize.getString(R.string.copy_failed);
-				Toast.makeText(Hangeulize.getInstance(), msg,
+				CharSequence msg = mHangeulider.getString(R.string.copy_failed);
+				Toast.makeText(Hangeulider.getInstance(), msg,
 						Toast.LENGTH_SHORT).show();
 			}
 		} else {

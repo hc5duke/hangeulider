@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.choibean.android.hangeulize;
+package com.choibean.android.hangeulider;
 
 public final class R {
     public static final class attr {
