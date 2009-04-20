@@ -6,7 +6,8 @@
 		android:layout_width="fill_parent" android:layout_height="wrap_content"
 		android:gravity="top" android:background="@android:drawable/edit_text">
 		<TextView android:id="@+id/koreanLabel" android:text="@string/korean_label"
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_width="wrap_content" android:layout_height="fill_parent"
+			android:gravity="center"
 			android:textColor="?android:attr/textColorSecondary"
 			android:textAppearance="?android:attr/textAppearanceLargeInverse" />
 		<EditText android:id="@+id/outputEdit" android:layout_width="wrap_content"
@@ -26,10 +27,9 @@
 		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 			android:layout_width="fill_parent" android:layout_alignParentLeft="true"
 			android:layout_height="wrap_content" android:gravity="top|center">
-
 			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 				android:layout_width="370dip" android:orientation="vertical"
-				android:layout_height="wrap_content" android:gravity="top">
+				android:layout_height="fill_parent" android:gravity="bottom">
 				<TextView android:id="@+id/helperLabel" android:text="@string/type_here1"
 					android:layout_width="fill_parent" android:layout_height="wrap_content" />
 				<EditText android:id="@+id/inputEdit"
