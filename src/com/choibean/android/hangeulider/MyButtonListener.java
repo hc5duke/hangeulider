@@ -33,7 +33,7 @@ public class MyButtonListener implements OnClickListener {
 			Hangeulider hang = Hangeulider.getInstance();
 			Intent myIntent = new Intent(hang, HelpActivity.class);
 			// TODO: get this to work
-			// hang.startActivityForResult(myIntent, Activity.ACTIVITY_CREATE);
+			 hang.startActivity(myIntent);
 		} else if (id == R.id.copyButton) {
 			Editable text = this.view.getText();
 			if (text.length() > 0) {

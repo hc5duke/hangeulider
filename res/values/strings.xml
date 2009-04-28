@@ -4,6 +4,7 @@
 	<string name="type_here2">Type here (두벌식 DuBeolShik)</string>
 	<string name="press_space">Press spacebar when ready</string>
 	<string name="app_name">HanGeulider - Korean Keyboard</string>
+	<string name="help_name">Help!</string>
 	<string name="dbs_off">두벌식: OFF</string>
 	<string name="dbs_on">두벌식: ON</string>
 	<string name="notification_title">HanGeulider!</string>

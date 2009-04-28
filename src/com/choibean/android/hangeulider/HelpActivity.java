@@ -2,6 +2,7 @@ package com.choibean.android.hangeulider;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.webkit.WebView;
 
 public class HelpActivity extends Activity {
