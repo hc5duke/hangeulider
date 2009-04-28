@@ -1,11 +1,12 @@
 package com.choibean.android.hangeulider;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.text.ClipboardManager;
 import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -29,20 +30,10 @@ public class MyButtonListener implements OnClickListener {
 		} else if (id == R.id.outputClearButton) {
 			((EditText) mHangeulider.findViewById(R.id.outputEdit)).setText("");
 		} else if (id == R.id.helpButton) {
-			WebView wv;
 			Hangeulider hang = Hangeulider.getInstance();
-			hang.setContentView(R.layout.help);
-			String mimeType = "text/html";
-			String encoding = "utf-8";
-			CharSequence message = mHangeulider.getText(R.string.help_text);
-			wv = (WebView) hang.findViewById(R.id.webview1);
-			wv.loadData(message.toString(), mimeType, encoding);
-			// CharSequence message = mHangeulider.getText(R.string.help_text);
-			// AlertDialog dialog = (new
-			// AlertDialog.Builder(Hangeulider.getInstance())).create();
-			// dialog.setTitle("Help!");
-			// dialog.setMessage(message);
-			// dialog.show();
+			Intent myIntent = new Intent(hang, HelpActivity.class);
+			// TODO: get this to work
+			// hang.startActivityForResult(myIntent, Activity.ACTIVITY_CREATE);
 		} else if (id == R.id.copyButton) {
 			Editable text = this.view.getText();
 			if (text.length() > 0) {
