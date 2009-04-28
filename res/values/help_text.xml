@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="help_text">
+		<p>
+			E-mail:
+			<a href="mailto:HanGeulider@gmail.com">HanGeulider@gmail.com</a>
+		</p>
+		<p>
+			URL:
+			<a href="http://choibean.com/korean">http://choibean.com/korean</a>
+		</p>
+		<p>
+			Twitter:
+			<a href='http://twitter.com/hangeulider'>@HanGuelider</a>
+		</p>
+	</string>
+</resources>
