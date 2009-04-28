@@ -34,15 +34,14 @@ public class HangeulParser implements TextWatcher {
 
 	public HangeulParser(Hangeulider Hangeulider) {
 		this.mHangeulider = Hangeulider;
+		MyButtonListener buttonListener = new MyButtonListener(Hangeulider,
+				output);
 		output = (EditText) Hangeulider.findViewById(R.id.outputEdit);
 		helper = (TextView) Hangeulider.findViewById(R.id.helperLabel);
 		preview = (Button) Hangeulider.findViewById(R.id.previewButton);
 		preview.setText("");
-		preview.setOnClickListener(new PreviewButtonListener(this));
+		preview.setOnClickListener(buttonListener);
 		// preview.setLongClickable(true); // TODO: han ja
-
-		MyButtonListener buttonListener = new MyButtonListener(Hangeulider,
-				output);
 
 		copy = (Button) Hangeulider.findViewById(R.id.copyButton);
 		copy.setOnClickListener(buttonListener);
