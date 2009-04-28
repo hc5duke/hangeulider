@@ -32,7 +32,7 @@ public class Hangeulider extends Activity {
 	protected static int inputMode = 1;
 	protected NotificationManager mNotificationManager;
 	protected Menu mMenu = null;
-	private int YOURAPP_NOTIFICATION_ID = 30294;
+	private int YOURAPP_NOTIFICATION_ID = 0;
 
 	private static Hangeulider mInstance;
 
@@ -114,6 +114,7 @@ public class Hangeulider extends Activity {
 				getString(R.string.app_name), System.currentTimeMillis());
 		n.setLatestEventInfo(context, getString(R.string.notification_title),
 				getString(R.string.notification_motto), pendingIntent);
+		n.flags = Notification.FLAG_ONGOING_EVENT;
 		mNotificationManager.notify(YOURAPP_NOTIFICATION_ID, n);
 		if (mMenu != null) {
 			MenuItem notiMode = mMenu.findItem(R.id.notificationMenuItem);

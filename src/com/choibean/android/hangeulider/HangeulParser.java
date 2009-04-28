@@ -242,6 +242,7 @@ public class HangeulParser implements TextWatcher {
 		consonants.put("g", new Integer(0));
 		consonants.put("gh", new Integer(0));
 		consonants.put("gg", new Integer(1));
+		consonants.put("q", new Integer(1));// q
 		consonants.put("n", new Integer(2));
 		consonants.put("d", new Integer(3));
 		consonants.put("dd", new Integer(4));
@@ -250,22 +251,23 @@ public class HangeulParser implements TextWatcher {
 		consonants.put("l", new Integer(5));
 		consonants.put("m", new Integer(6));
 		consonants.put("b", new Integer(7));
-		consonants.put("v", new Integer(7));
+		consonants.put("v", new Integer(8));
 		consonants.put("bb", new Integer(8));
 		consonants.put("s", new Integer(9));
 		consonants.put("sh", new Integer(9));
 		consonants.put("ss", new Integer(10));
+		consonants.put("x", new Integer(10));// x
 		consonants.put("", new Integer(11));
 		consonants.put("ng", new Integer(11));
 		consonants.put("rh", new Integer(11));
 		consonants.put("j", new Integer(12));
 		consonants.put("jj", new Integer(13));
 		consonants.put("z", new Integer(13));
+		consonants.put("c", new Integer(13));// ch
 		consonants.put("ch", new Integer(14));
 		consonants.put("k", new Integer(15));
 		consonants.put("c", new Integer(15));
 		consonants.put("kh", new Integer(15));
-		consonants.put("q", new Integer(15));
 		consonants.put("t", new Integer(16));
 		consonants.put("p", new Integer(17));
 		consonants.put("h", new Integer(18));
@@ -337,9 +339,11 @@ public class HangeulParser implements TextWatcher {
 		bachims.put("bs", new Integer(18));
 		bachims.put("s", new Integer(19));
 		bachims.put("ss", new Integer(20));
+		bachims.put("x", new Integer(20));
 		bachims.put("ng", new Integer(21));
 		bachims.put("j", new Integer(22));
 		bachims.put("ch", new Integer(23));
+		bachims.put("c", new Integer(23));
 		bachims.put("k", new Integer(24));
 		bachims.put("ck", new Integer(24));
 		bachims.put("t", new Integer(25));
@@ -350,6 +354,7 @@ public class HangeulParser implements TextWatcher {
 
 		jaeums.put("g", new Integer(0)); // g
 		jaeums.put("gg", new Integer(1));// gg
+		jaeums.put("q", new Integer(1));// q
 		jaeums.put("gs", new Integer(2));// gs
 		jaeums.put("n", new Integer(3)); // n
 		jaeums.put("nj", new Integer(4));// nj
@@ -367,16 +372,18 @@ public class HangeulParser implements TextWatcher {
 		jaeums.put("rh", new Integer(15));// rh
 		jaeums.put("m", new Integer(16));// m
 		jaeums.put("b", new Integer(17));// b
+		jaeums.put("v", new Integer(18));// bb
 		jaeums.put("bb", new Integer(18));// bb
 		jaeums.put("bs", new Integer(19));// bs
 		jaeums.put("s", new Integer(20));// s
 		jaeums.put("ss", new Integer(21));// ss
+		jaeums.put("x", new Integer(21));// x
 		jaeums.put("ng", new Integer(22));// -
 		jaeums.put("j", new Integer(23));// j
 		jaeums.put("jj", new Integer(24));// jj
+		jaeums.put("c", new Integer(25));// ch
 		jaeums.put("ch", new Integer(25));// ch
 		jaeums.put("k", new Integer(26));// k
-		jaeums.put("q", new Integer(26));// q
 		jaeums.put("t", new Integer(27));// t
 		jaeums.put("p", new Integer(28));// p
 		jaeums.put("h", new Integer(29));// h
