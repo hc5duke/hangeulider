@@ -12,37 +12,108 @@
 	<string name="copy">Copy</string>
 	<string name="help">Help!</string>
 	<string name="korean_label">한글:</string>
-	<string name="korean_ga">ㄱ</string>
-	<string name="korean_na">ㄴ</string>
-	<string name="korean_da">ㄷ</string>
-	<string name="korean_ra">ㄹ</string>
-	<string name="korean_ma">ㅁ</string>
-	<string name="korean_ba">ㅂ</string>
-	<string name="korean_sa">ㅅ</string>
-	<string name="korean_nga">ㅇ</string>
-	<string name="korean_ja">ㅈ</string>
-	<string name="korean_cha">ㅊ</string>
-	<string name="korean_ka">ㅋ</string>
-	<string name="korean_ta">ㅌ</string>
-	<string name="korean_pa">ㅍ</string>
-	<string name="korean_ha">ㅎ</string>
-	<string name="korean_a">ㅏ</string>
-	<string name="korean_ae">ㅐ</string>
-	<string name="korean_ya">ㅑ</string>
-	<string name="korean_yae">ㅒ</string>
-	<string name="korean_eo">ㅓ</string>
-	<string name="korean_e">ㅔ</string>
-	<string name="korean_yeo">ㅕ</string>
-	<string name="korean_ye">ㅖ</string>
-	<string name="korean_o">ㅗ</string>
-	<string name="korean_yo">ㅛ</string>
-	<string name="korean_u">ㅜ</string>
-	<string name="korean_yu">ㅠ</string>
-	<string name="korean_eu">ㅡ</string>
-	<string name="korean_i">ㅣ</string>
+	<string name="korean_ga">\u3131</string>
+	<string name="korean_na">\u3134</string>
+	<string name="korean_da">\u3137</string>
+	<string name="korean_ra">\u3139</string>
+	<string name="korean_ma">\u3141</string>
+	<string name="korean_ba">\u3142</string>
+	<string name="korean_sa">\u3145</string>
+	<string name="korean_nga">\u3147</string>
+	<string name="korean_ja">\u3148</string>
+	<string name="korean_cha">\u314A</string>
+	<string name="korean_ka">\u314B</string>
+	<string name="korean_ta">\u314C</string>
+	<string name="korean_pa">\u314D</string>
+	<string name="korean_ha">\u314E</string>
+	<string name="korean_a">\u314F</string>
+	<string name="korean_ae">\u3150</string>
+	<string name="korean_ya">\u3151</string>
+	<string name="korean_yae">\u3152</string>
+	<string name="korean_eo">\u3153</string>
+	<string name="korean_e">\u3154</string>
+	<string name="korean_yeo">\u3155</string>
+	<string name="korean_ye">\u3156</string>
+	<string name="korean_o">\u3157</string>
+	<string name="korean_yo">\u315B</string>
+	<string name="korean_u">\u315C</string>
+	<string name="korean_yu">\u3160</string>
+	<string name="korean_eu">\u3161</string>
+	<string name="korean_i">\u3163</string>
 	<string name="key_delete">&lt; Del</string>
 	<string name="key_space">Sp &gt;</string>
 	<string name="copy_failed">Nothing to copy!</string>
 	<string name="copied_to_clipboard">copied to clipboard</string>
-	<string name="help_text">&lt;table&gt;&lt;tr&gt;&lt;td&gt;E-mail: &lt;a href=\"mailto:HanGeulider@gmail.com\"&gt;HanGeulider@gmail.com&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;URL: &lt;a href=\"http://choibean.com/hangeulider\"&gt;http://choibean.com/korean&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Twitter: &lt;a href=\"http://twitter.com/hangeulider\"&gt;@HanGuelider&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;h1&gt;Landscape (wide) mode&lt;/h1&gt;In the wide mode, &lt;b&gt;Hangeulider&lt;/b&gt; assumes that you have access to the physical keyboard. Start typing in the text field at the bottom, and you will start to see Korean text appear in the \"&lt;i&gt;Preview&lt;/i&gt;\" box to the bottom right. This box will contain the current syllable you are typing, and you can either click on the box or press spacebar to move this character to the \"&lt;i&gt;output&lt;/i&gt;\" box towards the top of the screen. This is where you will find Korean text, and you can copy the text in this box when you are done.&lt;h1&gt;Portrait (tall) mode&lt;/h1&gt;In the tall mode, we provide you with a virtual keyboard on the screen with Korean ja-eum and mo-eum. Other than that, this is almost identical to the wide mode.&lt;h1&gt;Input Modes&lt;/h1&gt;In the wide mode, &lt;b&gt;Hangeulider&lt;/b&gt; provides you with two input methods: &lt;i&gt;DuBeolShik&lt;/i&gt; and &lt;i&gt;Phonetic&lt;/i&gt;. DuBeolShik tries to emulate the standard Korean keyboard layout, with the exception of recognizing the end of each syllable. Currently you have to press space or click on the character preview button to insert that character into the ouput window.&lt;h1&gt;Copying the text&lt;/h1&gt;You can either click on the \"&lt;i&gt;Copy&lt;/i&gt;\" button or press and hold the output text field to copy the text manually.&lt;h1&gt;Legal&lt;/h1&gt;ChoiBean \u00a9 2009&lt;br/&gt;For more information, go to &lt;a href=\"\"&gt;http://choibean.com/korean&lt;/a&gt;.</string>
+	<string name="help_text">&lt;table&gt;&lt;tr&gt;&lt;td&gt;E-mail:
+	&lt;a href=\"mailto:HanGeulider@gmail.com\"&gt;HanGeulider@gmail.com&lt;/a&gt;
+	&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;URL: &lt;a href=\"http://choibean.com/hangeulider\"&gt;
+	http://choibean.com/korean&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Twitter:
+	&lt;a href=\"http://twitter.com/hangeulider\"&gt;@HanGuelider&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+	&lt;h1&gt;Landscape (wide) mode&lt;/h1&gt;In the wide mode, &lt;b&gt;Hangeulider&lt;/b&gt; assumes
+	that you have access to the physical keyboard. Start typing in the text field at the bottom, and you
+	will start to see Korean text appear in the &lt;i&gt;\"Preview\"&lt;/i&gt; box to the bottom right.
+	This box will contain the current syllable you are typing, and you can either click on the box or
+	press spacebar to move this character to the &lt;i&gt;\"output\"&lt;/i&gt; box towards the top of
+	the screen. This is where you will find Korean text, and you can copy the text in this box when you
+	are done.
+	
+	&lt;h1&gt;Portrait (tall) mode&lt;/h1&gt;In the tall mode, we provide you with a virtual
+	keyboard on the screen with Korean ja-eum and mo-eum. Other than that, this is almost identical to
+	the wide mode.
+	
+	&lt;h1&gt;Input Modes&lt;/h1&gt;In the wide mode, &lt;b&gt;Hangeulider&lt;/b&gt;
+	provides you with two input methods: &lt;i&gt;DuBeolShik&lt;/i&gt; and &lt;i&gt;Phonetic&lt;/i&gt;.
+	DuBeolShik tries to emulate the standard Korean keyboard layout, with the exception of recognizing
+	the end of each syllable. Currently you have to press space or click on the character preview button
+	to insert that character into the ouput window. Here is a complete list of English-to-Korean phonetic
+	scheme we implemented for the phonetic mode:
+	
+	&lt;table&gt;
+	&lt;tr&gt;&lt;th&gt;Ja Eum&lt;/th&gt;&lt;th&gt;English&lt;/th&gt;&lt;/tr&gt;
+
+	&lt;tr&gt;&lt;td&gt;\u3131&lt;/td&gt;&lt;td&gt;g&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u3132&lt;/td&gt;&lt;td&gt;gg&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u3134&lt;/td&gt;&lt;td&gt;n&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u3137&lt;/td&gt;&lt;td&gt;d&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u3138&lt;/td&gt;&lt;td&gt;dd&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u3139&lt;/td&gt;&lt;td&gt;r&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u3141&lt;/td&gt;&lt;td&gt;m&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u3142&lt;/td&gt;&lt;td&gt;b&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u3143&lt;/td&gt;&lt;td&gt;bb&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u3145&lt;/td&gt;&lt;td&gt;s&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u3146&lt;/td&gt;&lt;td&gt;ss&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u3147&lt;/td&gt;&lt;td&gt;ng*&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u3148&lt;/td&gt;&lt;td&gt;j&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u3149&lt;/td&gt;&lt;td&gt;jj&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u314A&lt;/td&gt;&lt;td&gt;ch&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u314B&lt;/td&gt;&lt;td&gt;k&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u314C&lt;/td&gt;&lt;td&gt;t&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u314D&lt;/td&gt;&lt;td&gt;p&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u314E&lt;/td&gt;&lt;td&gt;h&lt;/td&gt;&lt;/tr&gt;
+	
+	&lt;tr&gt;&lt;td&gt;\u314F&lt;/td&gt;&lt;td&gt;a&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u3150&lt;/td&gt;&lt;td&gt;ae&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u3151&lt;/td&gt;&lt;td&gt;ya&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u3152&lt;/td&gt;&lt;td&gt;yae&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u3153&lt;/td&gt;&lt;td&gt;eo&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u3154&lt;/td&gt;&lt;td&gt;e&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u3155&lt;/td&gt;&lt;td&gt;yeo&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u3156&lt;/td&gt;&lt;td&gt;ye&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u3157&lt;/td&gt;&lt;td&gt;o&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u315B&lt;/td&gt;&lt;td&gt;yo&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u315C&lt;/td&gt;&lt;td&gt;u&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u3160&lt;/td&gt;&lt;td&gt;yu&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u3161&lt;/td&gt;&lt;td&gt;eu&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;\u3163&lt;/td&gt;&lt;td&gt;i&lt;/td&gt;&lt;/tr&gt;
+
+	&lt;/table&gt;
+	* \u3147 can also be expressed by typing a vowel without a consonant&lt;br/&gt;
+	n.b. Additional dipthong vowels can be written by combining vowels; e.g.
+	\"oa\" or \"wa\" will write \u3158.
+	&lt;h1&gt;Copying the text&lt;/h1&gt;You can either click on the &lt;i&gt;\"Copy\"&lt;/i&gt; button
+	or press and hold the output text field to copy the text manually.
+
+	&lt;h1&gt;Legal&lt;/h1&gt;ChoiBean \u00a9 2009&lt;br/&gt;For more information, go to
+	&lt;a href=\"\"&gt;http://choibean.com/korean&lt;/a&gt;.</string>
 </resources>
