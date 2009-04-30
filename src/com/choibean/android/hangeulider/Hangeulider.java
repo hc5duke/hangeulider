@@ -194,10 +194,12 @@ public class Hangeulider extends Activity {
 		Log.d("mode", String.valueOf(dubeolshik));
 		Hangeulider.inputMode = dubeolshik ? modeDubeolshik : modeKonglish;
 		ImageView dbs = (ImageView) findViewById(R.id.dbs);
-		if (dubeolshik) {
-			dbs.setVisibility(View.VISIBLE);
-		} else {
-			dbs.setVisibility(View.INVISIBLE);
+		if (dbs != null) {
+			if (dubeolshik) {
+				dbs.setVisibility(View.VISIBLE);
+			} else {
+				dbs.setVisibility(View.INVISIBLE);
+			}
 		}
 		parser.setModeText();
 	}
