@@ -1,6 +1,5 @@
 package com.choibean.android.hangeulider;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.text.ClipboardManager;
 import android.text.Editable;
@@ -35,6 +34,8 @@ public class MyButtonListener implements OnClickListener {
 			// TODO: get this to work
 			 hang.startActivity(myIntent);
 		} else if (id == R.id.copyButton) {
+			if (this.view == null)
+				this.view = (EditText)this.mHangeulider.findViewById(R.id.outputEdit);
 			Editable text = this.view.getText();
 			if (text.length() > 0) {
 				ClipboardManager clipboard = (ClipboardManager) mHangeulider
