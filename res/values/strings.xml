@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="type_here1">Type here (Phonetic mode)</string>
-	<string name="type_here2">Type here (두벌식 DuBeolShik)</string>
+	<string name="type_here2">Type here (\uB450\uBC8C\uC2DD DuBeolShik)</string>
 	<string name="press_space">Press spacebar when ready</string>
 	<string name="app_name">HanGeulider - Korean Keyboard</string>
 	<string name="help_name">Help!</string>
-	<string name="dbs_off">두벌식: OFF</string>
-	<string name="dbs_on">두벌식: ON</string>
+	<string name="dbs_off">\uB450\uBC8C\uC2DD: OFF</string>
+	<string name="dbs_on">\uB450\uBC8C\uC2DD: ON</string>
 	<string name="notification_title">HanGeulider!</string>
-	<string name="notification_motto">한글 Phonetic Virtual Keyboard</string>
+	<string name="notification_motto">\uD55C\uAE00 Phonetic Virtual Keyboard</string>
 	<string name="copy">Copy</string>
 	<string name="help">Help!</string>
-	<string name="korean_label">한글:</string>
+	<string name="korean_label">\uD55C\uAE00:</string>
 	<string name="korean_ga">\u3131</string>
 	<string name="korean_na">\u3134</string>
 	<string name="korean_da">\u3137</string>
