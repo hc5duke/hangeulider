@@ -1,0 +1,74 @@
+<html>
+<body>
+<table><tr><td>E-mail:
+<a href="mailto:HanGeulider@gmail.com">HanGeulider@gmail.com</a>
+</td></tr><tr><td>URL: <a href="http://choibean.com/hangeulider">
+http://choibean.com/korean</a></td></tr><tr><td>Twitter:
+<a href="http://twitter.com/hangeulider">@HanGuelider</a></td></tr></table>
+
+<h1>Landscape (wide) mode</h1>In the wide mode, <b>Hangeulider</b> assumes
+that you have access to the physical keyboard. Start typing in the text field at the bottom, and you
+will start to see Korean text appear in the <i>"Preview"</i> box to the bottom right.
+This box will contain the current syllable you are typing, and you can either click on the box or
+press spacebar to move this character to the <i>"output"</i> box towards the top of
+the screen. This is where you will find Korean text, and you can copy the text in this box when you
+are done.
+
+<h1>Portrait (tall) mode</h1>In the tall mode, we provide you with a virtual
+keyboard on the screen with Korean ja-eum and mo-eum. Other than that, this is almost identical to
+the wide mode.
+
+<h1>Input Modes</h1>In the wide mode, <b>Hangeulider</b>
+provides you with two input methods: <i>DuBeolShik</i> and <i>Phonetic</i>.
+DuBeolShik tries to emulate the standard Korean keyboard layout, with the exception of recognizing
+the end of each syllable. Currently you have to press space or click on the character preview button
+to insert that character into the ouput window. Here is a complete list of English-to-Korean phonetic
+scheme we implemented for the phonetic mode:
+
+<table>
+<tr><th>Ja Eum</th><th>English</th></tr>
+
+<tr><td>&#x3131;</td><td>g</td></tr>
+<tr><td>&#x3132;</td><td>gg, q</td></tr>
+<tr><td>&#x3134;</td><td>n</td></tr>
+<tr><td>&#x3137;</td><td>d</td></tr>
+<tr><td>&#x3138;</td><td>dd, th</td></tr>
+<tr><td>&#x3139;</td><td>r</td></tr>
+<tr><td>&#x3141;</td><td>m</td></tr>
+<tr><td>&#x3142;</td><td>b</td></tr>
+<tr><td>&#x3143;</td><td>bb, v</td></tr>
+<tr><td>&#x3145;</td><td>s</td></tr>
+<tr><td>&#x3146;</td><td>ss, x</td></tr>
+<tr><td>&#x3147;</td><td>ng, rh*</td></tr>
+<tr><td>&#x3148;</td><td>j</td></tr>
+<tr><td>&#x3149;</td><td>jj, z</td></tr>
+<tr><td>&#x314A;</td><td>ch, c</td></tr>
+<tr><td>&#x314B;</td><td>k</td></tr>
+<tr><td>&#x314C;</td><td>t</td></tr>
+<tr><td>&#x314D;</td><td>p</td></tr>
+<tr><td>&#x314E;</td><td>h</td></tr>
+<tr><th>Mo Eum</th><th>English</th></tr>
+<tr><td>&#x314F;</td><td>a</td></tr>
+<tr><td>&#x3150;</td><td>ae</td></tr>
+<tr><td>&#x3151;</td><td>ya</td></tr>
+<tr><td>&#x3152;</td><td>yae</td></tr>
+<tr><td>&#x3153;</td><td>eo</td></tr>
+<tr><td>&#x3154;</td><td>e</td></tr>
+<tr><td>&#x3155;</td><td>yeo</td></tr>
+<tr><td>&#x3156;</td><td>ye</td></tr>
+<tr><td>&#x3157;</td><td>o</td></tr>
+<tr><td>&#x315B;</td><td>yo</td></tr>
+<tr><td>&#x315C;</td><td>u</td></tr>
+<tr><td>&#x3160;</td><td>yu</td></tr>
+<tr><td>&#x3161;</td><td>eu</td></tr>
+<tr><td>&#x3163;</td><td>i</td></tr>
+
+</table>
+* &#x3147 can also be expressed by typing a vowel without a consonant<br/>
+n.b. Additional dipthong vowels can be written by combining vowels; e.g.
+"oa" or "wa" will write &#x3158.
+<h1>Copying the text</h1>You can either click on the <i>"Copy"</i> button
+or press and hold the output text field to copy the text manually.
+
+<h1>Legal</h1>ChoiBean &copy; 2009<br/>For more information, go to
+<a href="http://choibean.com/korean">http://choibean.com/korean</a>.</body></html>

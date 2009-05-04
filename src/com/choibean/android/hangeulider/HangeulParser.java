@@ -265,7 +265,6 @@ public class HangeulParser implements TextWatcher {
 		consonants.put("c", new Integer(13));// ch
 		consonants.put("ch", new Integer(14));
 		consonants.put("k", new Integer(15));
-		consonants.put("c", new Integer(15));
 		consonants.put("kh", new Integer(15));
 		consonants.put("t", new Integer(16));
 		consonants.put("p", new Integer(17));
