@@ -3,7 +3,6 @@ package com.choibean.android.hangeulider;
 import android.content.Intent;
 import android.text.ClipboardManager;
 import android.text.Editable;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
@@ -21,7 +20,7 @@ public class MyButtonListener implements OnClickListener {
 	public void onClick(View v) {
 		int id = v.getId();
 		HangeulParser parser = Hangeulider.parser;
-		Log.d("click", "<id> = " + id);
+		Hangeulider.logD("click", "<id> = " + id);
 		if (id == R.id.modeButton) {
 			mHangeulider.toggleDubeolshikMode();
 		} else if (id == R.id.previewButton) {
@@ -32,10 +31,11 @@ public class MyButtonListener implements OnClickListener {
 			Hangeulider hang = Hangeulider.getInstance();
 			Intent myIntent = new Intent(hang, HelpActivity.class);
 			// TODO: get this to work
-			 hang.startActivity(myIntent);
+			hang.startActivity(myIntent);
 		} else if (id == R.id.copyButton) {
 			if (this.view == null)
-				this.view = (EditText)this.mHangeulider.findViewById(R.id.outputEdit);
+				this.view = (EditText) this.mHangeulider
+						.findViewById(R.id.outputEdit);
 			Editable text = this.view.getText();
 			if (text.length() > 0) {
 				ClipboardManager clipboard = (ClipboardManager) mHangeulider
@@ -166,7 +166,7 @@ public class MyButtonListener implements OnClickListener {
 				ch = "";
 				break;
 			}
-			Log.d("press", ch);
+			Hangeulider.logD("press", ch);
 			if (!ch.equals(""))
 				input.setText(input.getText().append(ch));
 			// copy.requestFocus();

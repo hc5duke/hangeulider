@@ -56,20 +56,20 @@ public class Hangeulider extends Activity {
 		setDubeolshikMode(false);
 
 		if (savedInstanceState == null) {
-			Log.d("State", "onCreate(null)");
+			logD("State", "onCreate(null)");
 		} else {
-			Log.d("State", "onCreate(**something**)");
+			logD("State", "onCreate(**something**)");
 		}
 	}
 
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
-		Log.d("State", "onSIS: got to Child");
+		logD("State", "onSIS: got to Child");
 		Set<String> set = outState.keySet();
 		Iterator<String> iterator = set.iterator();
 		while (iterator.hasNext()) {
-			Log.d("State", outState.get(iterator.next()).getClass().getName());
+			logD("State", outState.get(iterator.next()).getClass().getName());
 		}
 	}
 
@@ -77,7 +77,7 @@ public class Hangeulider extends Activity {
 	protected void onStart() {
 		super.onStart();
 		toggleNotification(true);
-		Log.d("status", "start");
+		logD("status", "start");
 	}
 
 	@Override
@@ -140,7 +140,7 @@ public class Hangeulider extends Activity {
 
 	@Override
 	public boolean onMenuOpened(int featureId, Menu menu) {
-		Log.d("mode", String.valueOf(getDubeolshikMode()));
+		logD("mode", String.valueOf(getDubeolshikMode()));
 		mMenu = menu;
 		if (mMenu == null) {
 			return false;
@@ -158,7 +158,7 @@ public class Hangeulider extends Activity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		int id = item.getItemId();
-		Log.d("menu ", String.valueOf(id));
+		logD("menu ", String.valueOf(id));
 		if (id == R.id.notificationMenuItem) {
 			if (item.isChecked()) {
 				toggleNotification(false);
@@ -191,7 +191,7 @@ public class Hangeulider extends Activity {
 	}
 
 	public void setDubeolshikMode(boolean dubeolshik) {
-		Log.d("mode", String.valueOf(dubeolshik));
+		logD("mode", String.valueOf(dubeolshik));
 		Hangeulider.inputMode = dubeolshik ? modeDubeolshik : modeKonglish;
 		ImageView dbs = (ImageView) findViewById(R.id.dbs);
 		if (dbs != null) {
@@ -207,5 +207,9 @@ public class Hangeulider extends Activity {
 	public boolean isWide() {
 		Display display = getWindowManager().getDefaultDisplay();
 		return display.getWidth() > display.getHeight();
+	}
+
+	public static void logD(String tag, String msg) {
+		Log.d(tag, msg);
 	}
 }

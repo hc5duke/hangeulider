@@ -6,7 +6,6 @@ import java.util.regex.Pattern;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -104,7 +103,7 @@ public class HangeulParser implements TextWatcher {
 				|| text.indexOf('\n') != -1)
 			finalize = true;
 		if (text.length() > 0 && text.trim().equals("")) {
-			Log.d("text", "should enter space here");
+			Hangeulider.logD("text", "should enter space here");
 			if (input != null)
 				input.setText("");
 			output.setText(output.getText().append(' '));
@@ -147,7 +146,7 @@ public class HangeulParser implements TextWatcher {
 		}
 		parseKonglish(sb.toString(), finalize);
 		sb.insert(0, ">").insert(0, text).insert(0, "[dbs]");
-		Log.d("char", sb.toString());
+		Hangeulider.logD("char", sb.toString());
 	}
 
 	public void parseKonglish(String text, boolean finalize) {
@@ -160,7 +159,7 @@ public class HangeulParser implements TextWatcher {
 		}
 
 		if (parts.length < 1 || parts[0] == "") {
-			Log.d("status", text + " = too short");
+			Hangeulider.logD("status", text + " = too short");
 			preview.setText("");
 			setModeText();
 			return;
@@ -198,10 +197,10 @@ public class HangeulParser implements TextWatcher {
 		// log = new
 		// StringBuffer(consonant).append(',').append(vowel).append(',')
 		// .append(bachim);
-		// Log.d("status", log.toString());
+		// Hangeulider.logD("status", log.toString());
 
 		char c = (char) (unicode);
-		Log.d("status", String.valueOf(c));
+		Hangeulider.logD("status", String.valueOf(c));
 
 		if (finalize) {
 			input.setText("");

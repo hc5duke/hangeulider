@@ -6,7 +6,6 @@ import java.io.InputStream;
 import android.app.Activity;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Log;
 import android.webkit.WebView;
 
 public class HelpActivity extends Activity {
@@ -33,10 +32,10 @@ public class HelpActivity extends Activity {
 			text = String.valueOf(c);
 			is.close();
 		} catch (IOException e) {
-			Log.e("io", "trying to open raw help file");
+			Hangeulider.logD("io", "trying to open raw help file");
 		} catch (Resources.NotFoundException e) {
-			Log.e("io", e.toString());
-			Log.e("io", e.getMessage());
+			Hangeulider.logD("io", e.toString());
+			Hangeulider.logD("io", e.getMessage());
 		}
 		WebView wv = (WebView) findViewById(R.id.webview1);
 		wv.loadDataWithBaseURL(null, text, "text/html", "utf-8", "about:blank");
